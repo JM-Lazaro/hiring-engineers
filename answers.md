@@ -11,8 +11,8 @@
 
 Table of Contents
 1. [Introduction](#introduction)
-1.1 [Document Purpose](#document purpose)
-2. [Setting Up the Application Stack](#setting up the application stack)
+1.1 [Document Purpose](#document-purpose)
+2. [Setting Up the Application Stack](#setting-up-the-application-stack)
 2.1 [Vagrant Ubuntu and VirtualBox]
 2.2 [MYSQL]
 3. [Data Collection]
@@ -47,15 +47,17 @@ Table of Contents
 
 
 
-1. 
+1.
 ## Introduction
 
-1.1 ## Document Purpose
+1.1 
+## Document Purpose
 
 The purpose of this document is to display the applicant’s ability to complete basic Datadog Support Engineer tasks as listed in the Github Task.
 
 
-II.	Setting Up the Application Stack
+II. 
+## Setting Up the Application Stack
 
 Firstly, set-up the application stack in your Mac OS X. It will consist of a Vagrant Ubuntu operating system hosted on a VirtualBox VM with a
 
