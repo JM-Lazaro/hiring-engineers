@@ -1,6 +1,16 @@
+# Table of Contents
+1. [Example](#example)
+2. [Example2](#example2)
+3. [Third Example](#third-example)
+4. [Intro](#intro)
+
+## Example
+## Example2
+## Third Example
+## Intro
 
 Table of Contents
-I.	Introduction	3
+1. [Introduction](#introduction)
 1.	Document Purpose	3
 II.	Setting Up the Application Stack	3
 1.	Vagrant Ubuntu and VirtualBox	3
@@ -37,7 +47,8 @@ IV.	Version Control	29
 
 
 
-I.	Introduction
+I.	
+## Introduction
 
 1.	Document Purpose
 
