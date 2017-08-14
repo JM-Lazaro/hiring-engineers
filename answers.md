@@ -11,27 +11,27 @@
 
 Table of Contents
 1. [Introduction](#introduction)
-1.	Document Purpose	3
-II.	Setting Up the Application Stack	3
-1.	Vagrant Ubuntu and VirtualBox	3
-2.	MYSQL	6
-III.	Data Collection	9
-A.	Datadog Sign Up	9
-What is an Agent?	10
-A.	Adding Tags to Host	13
-Via Website	13
-Via Config file	14
-B.	MySQL Integration	15
-C.	Custom Check	17
-Database Integration Screenboard	18
-Timeboard vs. Screenboard	18
-Dashboard Cloning	20
-Custom Agent Check Timeboard	21
-Dashboard Snapshot and Notification	23
-D.	Alerting your Data	25
-Setting up a Monitor for the Test Metric	25
-Monitoring Downtime	27
-IV.	Version Control	29
+1.1 [Document Purpose](#document purpose)
+2. [Setting Up the Application Stack](#setting up the application stack)
+2.1 [Vagrant Ubuntu and VirtualBox]
+2.2 [MYSQL]
+3. [Data Collection]
+3.1 D[atadog Sign Up]
+[What is an Agent?]
+3.2 [Adding Tags to Host]
+3.2.1 [Via Website]
+3.2.2 [Via Config file]
+3.3 [MySQL Integration]
+3.4 [Custom Check]
+3.5 [Database Integration Screenboard]
+3.6 [Timeboard vs. Screenboard]
+3.7 [Dashboard Cloning]
+3.8 [Custom Agent Check Timeboard]
+4. [Alerts and Monitoring]
+4.1 [Dashboard Snapshot and Notification]
+4.2 [Alerting your Data]
+4.3 [Setting up a Monitor for the Test Metric]
+4.4 [Monitoring Downtime]
 
 
 
@@ -47,10 +47,10 @@ IV.	Version Control	29
 
 
 
-I.	
-## Introduction
 
-1.	Document Purpose
+I.## Introduction
+
+1.1 ## Document Purpose
 
 The purpose of this document is to display the applicant’s ability to complete basic Datadog Support Engineer tasks as listed in the Github Task.
 
