@@ -14,7 +14,7 @@
   - [Adding Tags to Host](#adding-tags-to-host)
   - [MySQL Integration](#mysql-integration)
   - [Custom Check](#custom-check)
-  - [Database Integration Screenboard](#database-integration-screenboard)
+  - [Database Integration Screenboard](#database-integration-screenboard)</br>
 &ensp;&ensp;Bonus Question: [What is the Difference Between Timeboards and Screenboards?](#timeboard-and-screenboard)
   - [Dashboard Cloning](#dashboard-cloning)
   - [Custom Agent Check Timeboard](#custom-agent-timeboard)
@@ -286,7 +286,7 @@ You can also create copies of your dashboard by cloning it. To create a clone yo
 You can send snapshots with annotations using the timeboard graphs.
   1. Hover you mouse over the graph and a camera icon will appear on the upper right corner of the graph. Click on this icon:
      __insert screenshot__
-  2. The mouse cursor will be change to a pencil and you can use this to draw a box in the graph and emphasize specific events in it.
+  2. The mouse cursor will be changed to a pencil and you can use this to draw a box and emphasize certain areas in the graph.
   3. You can also type in your comment in the dialog box below and send an email via annotation:
 
 			Email sent:
@@ -296,20 +296,27 @@ You can send snapshots with annotations using the timeboard graphs.
 
 ### Setting up a Monitor for the Test Metric
   1. On the left side menu of the Datadog UI, mouse over on Monitors and select __New Monitor__.
+  __insert screenshot__
   2. Select __Metric__ as the __Monitor type__.
+  __insert screenshot__
   3. Make sure the detection method is set at __Threshold Alert__ since we want to be alerted when the random number breaches the 0.90 mark.
+  __insert screenshot__
   4. Next on Define the metric, make sure that you have selected __test.support.random__ from our host(vagrant_system) and select __Multi Alert__ for each host so the alert will be applied to all of your existing and to be created hosts.
   5. Modify the email subject and body:
+  __insert screenshot__
   6. Finally, set the notifications and permissions and click __Save__.
 Email received:
+  __insert screenshot__
 
 ### 	Monitoring Downtime
 
 You can schedule monitoring downtimes for when you have a planned outage or you just don’t want to receive any alerts during off-business hours.
 To set it up, follow the instructions below:
 
-  1. From the left side menu, mouse over Monitors and click on Manage Downtime, then click on Schedule Downtime:
+  1. On the left side menu of the Datadog UI, mouse over __Monitors__, click on __Manage Downtime__, then click on __Schedule Downtime__:
   2. Choose a monitor. Choose the random number threshold monitoring:
+    __insert screenshot__
   3. Configure the schedule as seen below so the monitor will stop at 7pm and resume at 9am on a daily basis:
   4. Lastly, add a message to notify your team for the reason for the monitoring outage/downtime.
 &ensp;&ensp;&ensp;&ensp;Your monitoring downtime is now set-up:
+  __insert screenshot__
