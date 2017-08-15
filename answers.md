@@ -19,11 +19,11 @@
 &ensp;&ensp;Bonus Question: [What is the Difference Between Timeboards and Screenboards?](#timeboard-and-screenboard)
   - [Dashboard Cloning](#dashboard-cloning)
   - [Custom Agent Check Timeboard](#custom-agent-check-timeboard)
-+ [Alerts and Monitoring](#alerts-and-monitoring)
++ [Alerting Your Data](#alerting-your-data)
   - [Dashboard Snapshot and Notification](#dashboard-snapshot-and-notification)
-  - [Alerting Your Data](#alerting-your-data)
-  - [Setting up a Monitor for the Test Metric](#setting-up-a-monitor-for-the-test-metric)
+  - [Setting Up Your Monitoring](#alerting-your-data)
   - [Monitoring Downtime](#monitoring-downtime)
+  
 
 </br>
 </br>
@@ -295,7 +295,7 @@ You can also create copies of your dashboard by cloning it. To create a clone yo
   3. A new dashboard patterned after your existing dashboard is now created:
    __insert screenshot__
  
-## Alerts and Monitoring
+## Alerting Your Data
 
 ### Dashboard Snapshot and Notification
 You can send snapshots with annotations using the timeboard graphs.
@@ -307,10 +307,9 @@ You can send snapshots with annotations using the timeboard graphs.
 			__insert screenshot__
 			
 			__insert screenshot__
- 
-### Alerting your Data
 
-#### Dashboard Snapshot and Notification
+
+### Setting Up Your Monitoring
 Setting up a Monitor for the Test.Support.Random Metric
   1. On the left side menu of the Datadog UI, mouse over on Monitors and select __New Monitor__.
   __insert screenshot__
@@ -324,7 +323,7 @@ Setting up a Monitor for the Test.Support.Random Metric
 Email received:
   __insert screenshot__
 
-#### 	Monitoring Downtime
+### Monitoring Downtime
 
 You can schedule monitoring downtimes for when you have a planned outage or you just don’t want to receive any alerts during off-business hours.
 To set it up, follow the instructions below:
