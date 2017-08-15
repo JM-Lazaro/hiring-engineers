@@ -310,7 +310,8 @@ You can send snapshots with annotations using the timeboard graphs.
  
 ### Alerting your Data
 
-#### Setting up a Monitor for the Test Metric
+#### Dashboard Snapshot and Notification
+Setting up a Monitor for the Test.Support.Random Metric
   1. On the left side menu of the Datadog UI, mouse over on Monitors and select __New Monitor__.
   __insert screenshot__
   2. Select __Metric__ as the __Monitor type__.
