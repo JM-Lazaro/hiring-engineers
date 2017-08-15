@@ -45,9 +45,9 @@ Firstly, set-up the application stack in your Mac OS X. It will consist of a Vag
 
   1. Go to the [vagrant downloads site](https://www.vagrantup.com/downloads.html) and choose the installer for Mac OS X.
   2. Open the downloaded DMG file and double-click on vagrant.pkg.
-&ensp;&ensp;<img width="560" height="690" alt="vagrant_install1a" src="https://user-images.githubusercontent.com/30991348/29308222-50747a90-81e8-11e7-88cc-6788dcb2642f.png)">
+&ensp;&ensp;<img width="305" height="272" alt="vagrant_install1a" src="https://user-images.githubusercontent.com/30991348/29308836-94973422-81ea-11e7-9598-04b8ad13dfd3.png">
   3. Follow the instructions, which are very straightforward. The only option that you may want to change is in the Destination Select step which is sometimes skipped while clicking next. When that happens, click on the Change Install Location during the Installation Type step:
- &ensp;&ensp;![vagrant_intstall2b](https://user-images.githubusercontent.com/30991348/29308223-50c2f42c-81e8-11e7-97d6-f5d3ed8ef11f.png)
+ &ensp;&ensp;<img width="560" height="690" src="https://user-images.githubusercontent.com/30991348/29308837-949b610a-81ea-11e7-82c9-d729205b2e52.png">
   4. You would see the message below if the installation is a success. If you encounter any issues, please check the amount of diskspace available on your computer or if your operating system’s compatibility.
   5. We will also be using VirtualBox for VM provisioning. To install, go to https://www.virtualbox.org/wiki/Downloads  and click on the OS X hosts option.
   6. Open the downloaded installer and double-click on VirtualBox.pkg.
