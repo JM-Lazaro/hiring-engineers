@@ -15,7 +15,7 @@
   - [MySQL Integration](#mysql-integration)
   - [Custom Check](#custom-check)
   - [Database Integration Screenboard](#database-integration-screenboard)
-  - [Timeboard and Screenboard](#timeboard-and-screenboard)
+&ensp;&ensp;Bonus Question: [What is the Difference Between Timeboards and Screenboards?](#timeboard-and-screenboard)
   - [Dashboard Cloning](#dashboard-cloning)
   - [Custom Agent Check Timeboard](#custom-agent-timeboard)
 + [Alerts and Monitoring](#alerts-and-monitoring)
