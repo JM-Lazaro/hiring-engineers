@@ -13,7 +13,7 @@
 &ensp;&ensp;Bonus Question: [What is an Agent?](#what-is-an-agent)
   - [Host Tags](#host-tags)
   - [MySQL Integration](#mysql-integration)
-  - [Custom Check](#custom-check)
+  - [Custom Agent Check](#custom-agent-check)
   - [Database Integration Screenboard](#database-integration-screenboard)</br>
 &ensp;&ensp;Bonus Question: [What is the Difference Between Timeboards and Screenboards?](#timeboard-and-screenboard)
   - [Dashboard Cloning](#dashboard-cloning)
@@ -219,7 +219,7 @@ __insert screenshot__
 You should be able to see this under Checks:
 __insert screenshot__
  
-## 	Custom Check
+## Custom Agent Check
 
 To create a custom check, you need to create two components:
   - Integration Config file - a config file in __/etc/dd-agent/conf.d__ directory with a .yaml extension.
