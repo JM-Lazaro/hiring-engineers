@@ -15,6 +15,7 @@
   - [MySQL Integration](#mysql-integration)
   - [Custom Agent Check](#custom-agent-check)
   - [Database Integration Screenboard](#database-integration-screenboard)</br>
++ [Visualizing Your Data](#visualizing-your-data))
 &ensp;&ensp;Bonus Question: [What is the Difference Between Timeboards and Screenboards?](#timeboard-and-screenboard)
   - [Dashboard Cloning](#dashboard-cloning)
   - [Custom Agent Check Timeboard](#custom-agent-check-timeboard)
@@ -253,8 +254,7 @@ To create a custom check, you need to create two components:
    __insert screenshot__
  
 ## Visualizing your Data
-
-
+  
 ### Timeboard and Screenboard
 In Datadog, you can create two kinds of dashboards - the Timeboard and the Screenboard. The difference of these boards are their main purpose.
   * The Timeboard is primarily for internal use like investigations and alerts. You can set-up monitoring based from these graphs. You can also share snapshots of a graph to internal teams via annotations. 
@@ -295,6 +295,8 @@ You can also create copies of your dashboard by cloning it. To create a clone yo
   3. A new dashboard patterned after your existing dashboard is now created:
    __insert screenshot__
  
+## Alerts and Monitoring
+
 ### Dashboard Snapshot and Notification
 You can send snapshots with annotations using the timeboard graphs.
   1. Hover you mouse over the graph and a camera icon will appear on the upper right corner of the graph. Click on this icon:
@@ -306,9 +308,9 @@ You can send snapshots with annotations using the timeboard graphs.
 			
 			__insert screenshot__
  
-## 	Alerting your Data
+### Alerting your Data
 
-### Setting up a Monitor for the Test Metric
+#### Setting up a Monitor for the Test Metric
   1. On the left side menu of the Datadog UI, mouse over on Monitors and select __New Monitor__.
   __insert screenshot__
   2. Select __Metric__ as the __Monitor type__.
@@ -321,7 +323,7 @@ You can send snapshots with annotations using the timeboard graphs.
 Email received:
   __insert screenshot__
 
-### 	Monitoring Downtime
+#### 	Monitoring Downtime
 
 You can schedule monitoring downtimes for when you have a planned outage or you just don’t want to receive any alerts during off-business hours.
 To set it up, follow the instructions below:
