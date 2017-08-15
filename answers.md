@@ -51,15 +51,15 @@ To start with, you need to set-up the application stack in your Mac OS X. It wil
 
   1. To download the Vagrant installer, go to the [vagrant downloads site](https://www.vagrantup.com/downloads.html) and choose the installer for Mac OS X.
   2. Open the downloaded DMG file and double-click on vagrant.pkg.
-  ![vagrant_install1b](https://user-images.githubusercontent.com/30991348/29323031-008e9aac-8223-11e7-9551-0a6899621b85.png)
+&ensp;&ensp;<img width="310" height="218" src="https://user-images.githubusercontent.com/30991348/29323613-ca91b130-8224-11e7-8ce1-32bf85ce4092.png">&ensp;
   3. The steps are straightforward, the only parameter that you may want to change is in the Destination Select step which is sometimes skipped while clicking next. When that happens, click on the Change Install Location during the Installation Type step:</br>
-  ![vagrant_intstall2b](https://user-images.githubusercontent.com/30991348/29323032-009acfd4-8223-11e7-8ba1-9375f5cf3594.png)
+&ensp;&ensp;<img width="310" height="218" src="https://user-images.githubusercontent.com/30991348/29323032-009acfd4-8223-11e7-8ba1-9375f5cf3594.png">&ensp;
   4. You would see the message below if the installation is a success. If you encounter any issues, please check the amount of diskspace available on your computer or if your operating system’s compatibility.</br>
-  ![vagrant_success](https://user-images.githubusercontent.com/30991348/29323613-ca91b130-8224-11e7-8ce1-32bf85ce4092.png)
+&ensp;&ensp;<img width="310" height="218" src="https://user-images.githubusercontent.com/30991348/29323613-ca91b130-8224-11e7-8ce1-32bf85ce4092.png">&ensp;
   5. We will also be using VirtualBox for VM provisioning. To install, go to https://www.virtualbox.org/wiki/Downloads  and click on the OS X hosts option.
   6. The installer works exactly the same as with Vagrant. Follow steps 2-3.
   7. You would see the message below once you installation successfully completes.
-  ![virtualbox_success](https://user-images.githubusercontent.com/30991348/29323033-009e9c18-8223-11e7-93cf-c6f839236aa3.png)
+&ensp;&ensp;<img width="310" height="218" src="https://user-images.githubusercontent.com/30991348/29323033-009e9c18-8223-11e7-93cf-c6f839236aa3.png">&ensp;
  The commands below are simple vagrants that you may use:
  ```
  vagrant up      #start/create a Vagrant instance
