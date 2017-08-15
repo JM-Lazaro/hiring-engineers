@@ -6,7 +6,7 @@
 
 + [Introduction](#introduction)
 + [Setting Up the Application Stack](#setting-up-the-application-stack)
-  - [Vagrant Ubuntu and VirtualBox](#vagrant-ubuntu-and-virtualbox)
+  - [Vagrant Ubuntu and VirtualBox](#vagrant-ubuntu-and-virtualbox-installation)
   - [MYSQL](#mysql)
 + [Data Collection](#data-collection)
   - [Datadog Sign Up and Vagrant Integration](#datadog-sign-up-and-vagrant-integration)</br>
