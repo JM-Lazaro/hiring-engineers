@@ -5,9 +5,9 @@
 ## Table of Contents
 
 + [Introduction](#introduction)
-+ [Setting Up the Application Stack](#setting-up-the-application-stack)
++ [Setting Up Your Application Stack](#setting-up-your-application-stack)
   - [Vagrant Ubuntu and VirtualBox Installation](#vagrant-ubuntu-and-virtualbox-installation)
-  - [MYSQL](#mysql)
+  - [MYSQL Installation](#mysql-installation)
 + [Data Collection](#data-collection)
   - [Datadog Sign Up and Vagrant Integration](#datadog-sign-up-and-vagrant-integration)</br>
 &ensp;&ensp;Bonus Question: [What is an Agent?](#what-is-an-agent?)
@@ -41,7 +41,7 @@ This activity will primarily focus on helping you install three topics:
   3. Monitoring and Alerts
 
 
-# Setting Up the Application Stack
+# Setting Up Your Application Stack
 
 To start with, you need to set-up the application stack in your Mac OS X. It will consist of a Vagrant-Ubuntu operating system hosted on a VirtualBox VM with MySQL as the database server.
 
@@ -66,7 +66,7 @@ To start with, you need to set-up the application stack in your Mac OS X. It wil
  ```
 
 
-## 	MYSQL
+## MYSQL Installation
 &ensp;&ensp;Follow the steps below to install MySQL on the Vagrant OS.
   1. Open your MAC Terminal and create/start a vagrant virtual machine by executing the command:<br />
 &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;`vagrant up`
