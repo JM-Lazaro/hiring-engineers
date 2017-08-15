@@ -97,9 +97,11 @@ Now that you have set-up your application suite, you can now proceed with your s
   5. Install curl before executing the script from the Datadog instructions by running the command below in the vagrant terminal:<br />
 &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;`sudo apt-get install curl`
   6. Copy the datadog installation command and run it in the terminal:<br />
+```
+DD_API_KEY=c08db2089f1d3ea2ee9f6238c2e87d12 bash -c "$(curl -L https://raw.githubusercontent.com/DataDog/dd-agent/master/packaging/datadog-agent/source/install_agent.sh)" DD_INSTALL_ONLY=true
+```
 <br />
-&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;`DD_API_KEY=c08db2089f1d3ea2ee9f6238c2e87d12 bash -c "$(curl -L https://raw.githubusercontent.com/DataDog/dd-agent/master/packaging/datadog-agent/source/install_agent.sh)" DD_INSTALL_ONLY=true`
-&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;_NOTE:Replace the DD_API_KEY with the key that will be generated for your account_
+_NOTE:Replace the DD_API_KEY with the key that will be generated for your account_
   7. Running this command would automatically start the datadog agent data collection for the Ubuntu server:
       	__INSERT SCREENSHOT__
   8. After a few seconds, Datadog will receive the data from your host and you can now click on the Finish button in the lower right to complete the sign-up.
