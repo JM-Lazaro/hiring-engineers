@@ -58,7 +58,7 @@ To start with, you need to set-up the application stack in your Mac OS X. It wil
 &ensp;&ensp;<img width="310" height="218" src="https://user-images.githubusercontent.com/30991348/29323613-ca91b130-8224-11e7-8ce1-32bf85ce4092.png">&ensp;
   5. We will also be using VirtualBox for VM provisioning. To install, go to https://www.virtualbox.org/wiki/Downloads  and click on the OS X hosts option.
   6. The installer works exactly the same as with Vagrant. Follow steps 2-3.
-  7. You would see the message below once you installation successfully completes.
+  7. You would see the message below once you installation successfully completes.</br>
 &ensp;&ensp;<img width="310" height="218" src="https://user-images.githubusercontent.com/30991348/29323033-009e9c18-8223-11e7-93cf-c6f839236aa3.png">&ensp;
  The commands below are simple vagrants that you may use:
  ```
