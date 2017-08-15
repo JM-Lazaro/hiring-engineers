@@ -11,27 +11,27 @@
 
 Table of Contents<br /> 
 [Introduction](#introduction)<br /> 
-	1.1 [Document Purpose](#document-purpose)<br /> 
+&ensp;&ensp;1.1 [Document Purpose](#document-purpose)<br /> 
 [Setting Up the Application Stack](#setting-up-the-application-stack)<br /> 
-	2.1 [Vagrant Ubuntu and VirtualBox](#vagrant-ubuntu-and-virtualbox)<br /> 
-	2.2 [MYSQL](#mysql)<br /> 
+&ensp;&ensp;2.1 [Vagrant Ubuntu and VirtualBox](#vagrant-ubuntu-and-virtualbox)<br /> 
+&ensp;&ensp;2.2 [MYSQL](#mysql)<br /> 
 [Data Collection](#data-collection)<br /> 
-	3.1 [Datadog Sign Up](#datadog-sign-up)<br /> 
-[What is an Agent?](#what-is-an-agent)<br /> 
-	3.2 [Adding Tags to Host](#adding-tags-to-host)<br /> 
-		3.2.1 [Via Website](#via-website)<br /> 
-		3.2.2 [Via Config file](#via-config-file)<br /> 
-	3.3 [MySQL Integration](#mysql-integration)<br /> 
-	3.4 [Custom Check](#custom-check)<br /> 
-	3.5 [Database Integration Screenboard](#database-integration-screenboard)<br /> 
-	3.6 [Timeboard vs. Screenboard](#timeboard-vs.-screenboard)<br /> 
-	3.7 [Dashboard Cloning](#dashboard-cloning)<br /> 
-	3.8 [Custom Agent Check Timeboard](#custom-agent-timeboard)<br /> 
+&ensp;&ensp;3.1 [Datadog Sign Up](#datadog-sign-up)<br /> 
+[What is an Agent?](#what-is-an-agent?)<br /> 
+&ensp;&ensp;3.2 [Adding Tags to Host](#adding-tags-to-host)<br /> 
+&ensp;&ensp;&ensp;&ensp;3.2.1 [Via Website](#via-website)<br /> 
+&ensp;&ensp;&ensp;&ensp;3.2.2 [Via Config file](#via-config-file)<br /> 
+&ensp;&ensp;3.3 [MySQL Integration](#mysql-integration)<br /> 
+&ensp;&ensp;3.4 [Custom Check](#custom-check)<br /> 
+&ensp;&ensp;3.5 [Database Integration Screenboard](#database-integration-screenboard)<br /> 
+&ensp;&ensp;3.6 [Timeboard vs. Screenboard](#timeboard-vs.-screenboard)<br /> 
+&ensp;&ensp;3.7 [Dashboard Cloning](#dashboard-cloning)<br /> 
+&ensp;&ensp;3.8 [Custom Agent Check Timeboard](#custom-agent-timeboard)<br /> 
 [Alerts and Monitoring](#alerts-and-monitoring)<br /> 
-		4.1 [Dashboard Snapshot and Notification](#dashboard-sanapshot-and-notification)<br /> 
-		4.2 [Alerting Your Data](#alerting-your-data)<br /> 
-		4.3 [Setting up a Monitor for the Test Metric](#setting-up-a-monitor-for-the-test-metric)<br /> 
-		4.4 [Monitoring Downtime](#monitoring-downtime)<br /> 
+&ensp;&ensp;4.1 [Dashboard Snapshot and Notification](#dashboard-sanapshot-and-notification)<br /> 
+&ensp;&ensp;4.2 [Alerting Your Data](#alerting-your-data)<br /> 
+&ensp;&ensp;4.3 [Setting up a Monitor for the Test Metric](#setting-up-a-monitor-for-the-test-metric)<br /> 
+&ensp;&ensp;4.4 [Monitoring Downtime](#monitoring-downtime)<br /> 
 
 
 
