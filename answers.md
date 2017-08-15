@@ -21,7 +21,7 @@
   - [Custom Agent Check Timeboard](#custom-agent-check-timeboard)
 + [Alerting Your Data](#alerting-your-data)
   - [Dashboard Snapshot and Notification](#dashboard-snapshot-and-notification)
-  - [Setting Up Your Monitoring](#alerting-your-data)
+  - [Events Monitoring](#events-monitoring)
   - [Monitoring Downtime](#monitoring-downtime)
   
 
@@ -309,7 +309,7 @@ You can send snapshots with annotations using the timeboard graphs.
 			__insert screenshot__
 
 
-### Setting Up Your Monitoring
+### Events Monitoring
 Setting up a Monitor for the Test.Support.Random Metric
   1. On the left side menu of the Datadog UI, mouse over on Monitors and select __New Monitor__.
   __insert screenshot__
