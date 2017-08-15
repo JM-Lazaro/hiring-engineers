@@ -1,15 +1,8 @@
-# Table of Contents
-1. [Example](#example)
-2. [Example2](#example2)
-3. [Third Example](#third-example)
-4. [Intro](#intro)
 
-## Example
-## Example2
-## Third Example
-## Intro
 
-Table of Contents<br /> 
+# Datadog Support Engineer - At Home Task
+
+## Table of Contents<br /> 
 [Introduction](#introduction)<br /> 
 [Setting Up the Application Stack](#setting-up-the-application-stack)<br /> 
 &ensp;&ensp;2.1 [Vagrant Ubuntu and VirtualBox](#vagrant-ubuntu-and-virtualbox)<br /> 
@@ -44,17 +37,17 @@ Table of Contents<br />
 
 
 
-# Introduction
+## Introduction
 
 The purpose of this document is to display the applicant’s ability to complete basic Datadog Support Engineer tasks as listed in the Github Task.
 
 
 
-# Setting Up the Application Stack
+## Setting Up the Application Stack
 
 Firstly, set-up the application stack in your Mac OS X. It will consist of a Vagrant Ubuntu operating system hosted on a VirtualBox VM with a
 
-## 	Vagrant Ubuntu and VirtualBox
+### 	Vagrant Ubuntu and VirtualBox
 
 a.	Go to the vagrant downloads site -https://www.vagrantup.com/downloads.html and choose the installer for Mac OS X.
 b.	Open the downloaded DMG file and double-click on vagrant.pkg.
@@ -71,7 +64,7 @@ g.	You would see the message below if the installation is a success.
  
 
 
-## 	MYSQL
+### 	MYSQL
 
 a.	Open your terminal and open a vagrant virtual machine by executing the command:<br />
 vagrant up
@@ -121,12 +114,12 @@ mysql –u root -p
 
 
 
-# Data Collection
+## Data Collection
 
 Now that we have set-up our application suite, we will now proceed in integrating Datadog to our system.
 
 
-## 	Datadog Sign Up
+### 	Datadog Sign Up
 
 a.	Go to datadog homepage: https://www.datadoghq.com and click the GET STARTED FOR FREE button:
 
@@ -200,9 +193,9 @@ h.	After a few seconds, Datadog will receive the data from your host and you can
 
 
 
-## 	Adding Tags to Host
+### 	Adding Tags to Host
 
-### 		Via Website
+#### 		Via Website
 
 a.	From the left bar menu, mouse over on Infrastructure and click on “Infrastructure List”.
 b.	On the upper right corner, click on Update Host Tags
@@ -214,7 +207,7 @@ c.	Click on Edit Tags and enter.
 
  
 
-### 		Via Config file
+#### 		Via Config file
 	
 a.	From your vagrant terminal, go to the datadog configuration directory via command:<br />
 /etc/dd-agent
@@ -236,7 +229,7 @@ f.	You can now find the tags in the UI:
 Host Map
 
  
-## 	MySQL Integration
+### 	MySQL Integration
 
 a.	Get the integration instructions for MySQL, go to Datadog UI.
 b.	On the left side menu, mouse over on Integrations and click on Integrations.
@@ -271,7 +264,7 @@ sudo /etc/init.d/datadog-agent info
 
 You should be able to see this under Checks:
  
-## 	Custom Check
+### 	Custom Check
 
 To create a custom check, you need to create an integration configuration file and the custom check script. 
 a.	Integration config file - Create a config file in conf.d directory with a .yaml extension and contains:
@@ -303,9 +296,9 @@ sudo /etc/init.d/datadog-agent info
 
 
 
-## 	Visualizing your Data
+### 	Visualizing your Data
 
-### 		Database Integration Screenboard
+#### 		Database Integration Screenboard
 
 1.	To create a screenboard, go to the Datadog UI.
 2.	From the left side menu, mouse over on Dasboards and click on New Dashboard.
@@ -325,7 +318,7 @@ iv.	Click on Save Changes and you now have your database screenboard:
 Link: https://p.datadoghq.com/sb/2cc1ef6fa-ddf64a7098 
  
 
-### 		Dashboard Cloning
+#### 		Dashboard Cloning
 You can also create copies of your dashboard by cloning it. To create a clone you just need to:
 a.	Click on the gear icon on the upper right of the dashboard page and choose Clone Dashboard:
  
@@ -358,7 +351,7 @@ Link - https://p.datadoghq.com/sb/2cc1ef6fa-5a7fc11516
 
 
 
-### 		Custom Agent Check Timeboard
+#### 		Custom Agent Check Timeboard
 a.	To create a screenboard, go to the Datadog UI.
 b.	From the left side menu, mouse over on Dasboards and click on New Dashboard.
 c.	Fill in the dashboard name and click on New Timeboard.
@@ -378,7 +371,7 @@ ii.	Set the graph title then click on Save and Finish Editing. Your dashboard wi
 
 
 
-### 		Dashboard Snapshot and Notification
+#### 		Dashboard Snapshot and Notification
 You can send snapshots with annotations using the timeboard graphs.
 1.	Hover you mouse over the graph and a camera icon will appear on the upper right corner of the graph. Click on this icon.
 2.	The mouse cursor will be change to a pencil and you can use this to draw a box in the graph and emphasize specific events in it.
@@ -420,7 +413,7 @@ You can send snapshots with annotations using the timeboard graphs.
 
 
 
-## 	Alerting your Data
+### 	Alerting your Data
 
 Setting up a Monitor for the Test Metric
 1.	On the left side menu, mouse over on Monitors and select New Monitor.
@@ -445,7 +438,7 @@ Email received:
 
 
 
-## 	Monitoring Downtime
+### 	Monitoring Downtime
 
 You can schedule monitoring downtimes for when you have a planned outage or you just don’t want to receive any alerts during off-business hours.
 To set it up, follow the instructions below:
