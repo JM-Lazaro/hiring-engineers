@@ -165,7 +165,7 @@ sudo mysql -e "GRANT PROCESS ON *.* TO 'datadog'@'localhost';"
 sudo mysql -e "GRANT SELECT ON performance_schema.* TO 'datadog'@'localhost';"
 ```
 _NOTE: You may encounter the error “ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: NO)”, when you do, append the command lines with –u root –p. You will be prompted with the root password.<br />
-Ex. `sudo mysql -e "CREATE USER 'datadog'@'localhost' IDENTIFIED BY '[datadog password]';" –u root –p`_<br />
+Ex. `sudo mysql -e "CREATE USER 'datadog'@'localhost' IDENTIFIED BY '[datadog password]';" –u root –p`_<br /></br>
   5. Verify the changes using the commands:
   ```
   mysql -u datadog --password=<datadog db password> -e "show status" | \
