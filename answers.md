@@ -31,17 +31,17 @@
 </br>
 </br>
 
-## Introduction
+# Introduction
 
 The purpose of this document is to display the applicant’s ability to complete basic Datadog Support Engineer tasks as listed in the Github Task.
 
 
 
-## Setting Up the Application Stack
+# Setting Up the Application Stack
 
 Firstly, set-up the application stack in your Mac OS X. It will consist of a Vagrant Ubuntu operating system hosted on a VirtualBox VM with a
 
-### 	Vagrant Ubuntu and VirtualBox
+## 	Vagrant Ubuntu and VirtualBox
 
   1. Go to the [vagrant downloads site](https://www.vagrantup.com/downloads.html) and choose the installer for Mac OS X.
   2. Open the downloaded DMG file and double-click on vagrant.pkg.
@@ -54,7 +54,7 @@ Firstly, set-up the application stack in your Mac OS X. It will consist of a Vag
  
 
 
-### 	MYSQL
+## 	MYSQL
 
   1. Open your MAC Terminal and create/start a vagrant virtual machine by executing the command:<br />
 &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;`vagrant up`
@@ -69,7 +69,7 @@ Firstly, set-up the application stack in your Mac OS X. It will consist of a Vag
 &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;`ps –ef | grep mysql`
 &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;`mysql –u root -p`
 
-## Data Collection
+# Data Collection
 
 Now that we have set-up our application suite, we will now proceed in integrating Datadog to our system.
 <h3>Datadog Sign Up</h3>
@@ -87,16 +87,16 @@ Now that we have set-up our application suite, we will now proceed in integratin
 <li>Running this command would automatically start the datadog agent data collection for the Ubuntu server:</li>
 <li>After a few seconds, Datadog will receive the data from your host and you can now click on the Finish button in the lower right to complete the sign-up.</li>
 </ol>
-### 	Adding Tags to Host
+## 	Adding Tags to Host
 
-#### Via Website
+### Via Website
   1. From the left bar menu, mouse over on Infrastructure and click on “Infrastructure List”.
   2. On the upper right corner, click on Update Host Tags
   3. Click on Edit Tags and enter.
   
 </br>&ensp;&ensp;&ensp;&ensp;Host Map
 
-#### Via Config file
+### Via Config file
   1. From your vagrant terminal, go to the datadog configuration directory via command:</br>
 	&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;`cd /etc/dd-agent`
   2. Open and edit the configuration file - datadog.conf</br>
@@ -110,7 +110,7 @@ Now that we have set-up our application suite, we will now proceed in integratin
 </br>&ensp;&ensp;&ensp;&ensp;Host Map
 
  
-### 	MySQL Integration
+## 	MySQL Integration
   1. Get the integration instructions for MySQL, go to Datadog UI.
   2. On the left side menu, mouse over on Integrations and click on Integrations.
   3. Type in MySQL in the search box and click on the Configure.
@@ -141,7 +141,7 @@ Ex. &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;`sudo mysql -e "CREATE USER 'datadog'@'l
 
 You should be able to see this under Checks:
  
-### 	Custom Check
+## 	Custom Check
 To create a custom check, you need to create an integration configuration file and the custom check script. 
   1. Integration config file - Create a config file in conf.d directory with a .yaml extension and contains:
   2. Custom Check Script – create a script in the checks.d directory similarly named as the config file but with a .py extension. 
@@ -151,9 +151,9 @@ To create a custom check, you need to create an integration configuration file a
   5. execute the Datadog info command and you should see that the custom check is now included under Checks:<br />
 &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;`sudo /etc/init.d/datadog-agent info`
  
-### 	Visualizing your Data
+## 	Visualizing your Data
 
-#### 		Database Integration Screenboard
+### 		Database Integration Screenboard
   1. To create a screenboard, go to the Datadog UI.
   2. From the left side menu, mouse over on Dasboards and click on New Dashboard.
   3. Fill in the dashboard name and click on New Screenboard.
@@ -169,7 +169,7 @@ To create a custom check, you need to create an integration configuration file a
 
  
 
-#### 		Dashboard Cloning
+### 		Dashboard Cloning
 You can also create copies of your dashboard by cloning it. To create a clone you just need to:
 a.	Click on the gear icon on the upper right of the dashboard page and choose Clone Dashboard:
  
@@ -177,7 +177,7 @@ b.	A pop-up box will appear so you can set the name of the dashboard clone. Clic
  
 c.	A new dashboard patterned after your existing dashboard is now created:
 
-#### 		Custom Agent Check Timeboard
+### 		Custom Agent Check Timeboard
   1. To create a screenboard, go to the Datadog UI.
   2. From the left side menu, mouse over on Dasboards and click on New Dashboard.
   3. Fill in the dashboard name and click on New Timeboard.
@@ -187,7 +187,7 @@ c.	A new dashboard patterned after your existing dashboard is now created:
      1. Set visualization to Timeseries and choose the test.support.random metric.
      2. Set the graph title then click on Save and Finish Editing. Your dashboard will look like this:
  
-#### 		Dashboard Snapshot and Notification
+### 		Dashboard Snapshot and Notification
 You can send snapshots with annotations using the timeboard graphs.
   1. Hover you mouse over the graph and a camera icon will appear on the upper right corner of the graph. Click on this icon.
   2. The mouse cursor will be change to a pencil and you can use this to draw a box in the graph and emphasize specific events in it.
@@ -195,7 +195,7 @@ You can send snapshots with annotations using the timeboard graphs.
 
 			Email sent:
  
-### 	Alerting your Data
+## 	Alerting your Data
 
 Setting up a Monitor for the Test Metric
   1. On the left side menu, mouse over on Monitors and select New Monitor.
