@@ -65,73 +65,54 @@ Firstly, set-up the application stack in your Mac OS X. It will consist of a Vag
 
 a.	Go to the vagrant downloads site -https://www.vagrantup.com/downloads.html and choose the installer for Mac OS X.
 b.	Open the downloaded DMG file and double-click on vagrant.pkg.
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
+<img width="1440" alt="vagrant_install1" src="https://user-images.githubusercontent.com/30991348/29299031-46102182-81af-11e7-929c-65c84744d7d2.png">
 c.	Follow the instructions, which are very straightforward. The only option that you may want to change is in the Destination Select step which is sometimes skipped while clicking next. When that happens, click on the Change Install Location during the Installation Type step:
-
- 
-
-
+<img width="1440" alt="vagrant_intstall2" src="https://user-images.githubusercontent.com/30991348/29299034-46671212-81af-11e7-8880-aade8752b944.png">
 d.	You would see the message below if the installation is a success. If you encounter any issues, please check the amount of diskspace available on your computer or if your operating system’s compatibility.
-
- 
-
+<img width="1440" alt="vagrant_intstall3" src="https://user-images.githubusercontent.com/30991348/29299033-46618f04-81af-11e7-8a62-c72ff7fc9118.png">
 e.	We will also be using VirtualBox for VM provisioning. To install, go to https://www.virtualbox.org/wiki/Downloads  and click on the OS X hosts option.
 f.	Open the downloaded installer and double-click on VirtualBox.pkg.
-
- 
+<img width="1440" alt="virtualbox_install1" src="https://user-images.githubusercontent.com/30991348/29299035-46687e36-81af-11e7-9cbb-d8611e89fb4c.png">
 g.	You would see the message below if the installation is a success.
-
+<img width="1440" alt="virtualbox_install4" src="https://user-images.githubusercontent.com/30991348/29299032-46482eec-81af-11e7-9bc2-ef1526239789.png">
  
 
 
 ## 	MYSQL
 
-a.	Open your terminal and open a vagrant virtual machine by executing the command:
-	vagrant up
+a.	Open your terminal and open a vagrant virtual machine by executing the command:<br />
+vagrant up
 
  
 
-b.	Your Vagrant VM is now up and running. Connect to it by executing the command:
-	vagrant ssh
-
- 
-
-
-
-
-
-
-c.	Before MySQL installation, make sure the system is updated using the commands:
-
-	sudo apt-get update
-	sudo apt-get upgrade  <---- this will take a while to download and install
-
-d.	To install MySQL, run the command:
-	sudo apt-get install mysql-server
+b.	Your Vagrant VM is now up and running. Connect to it by executing the command:<br />
+vagrant ssh
 
  
 
 
-e.	The MySQL server should be automatically up and running after the installation. To verify, check the mysql background process using:
-	ps –ef | grep mysql
+
+
+
+
+c.	Before MySQL installation, make sure the system is updated using the commands:<br />
+<br />
+sudo apt-get update
+<br />sudo apt-get upgrade  <---- this will take a while to download and install
+
+d.	To install MySQL, run the command:<br />
+sudo apt-get install mysql-server
 
  
 
-Also, log-in using the root access credentials and exit by entering ‘quit’:
-	mysql –u root -p
+
+e.	The MySQL server should be automatically up and running after the installation. To verify, check the mysql background process using:<br />
+ps –ef | grep mysql
+
+ 
+
+Also, log-in using the root access credentials and exit by entering ‘quit’:<br />
+mysql –u root -p
 
  
 
@@ -186,14 +167,14 @@ d.	For the final step, install a datadog agent to your host system. Select Ubunt
 
 
 
-e.	Install curl before executing the script from the Datadog instructions by running the command below in the vagrant terminal:
-	sudo apt-get install curl
+e.	Install curl before executing the script from the Datadog instructions by running the command below in the vagrant terminal:<br />
+sudo apt-get install curl
 
  
 
-f.	Copy the datadog installation command and run it in the terminal:
-
-	DD_API_KEY=c08db2089f1d3ea2ee9f6238c2e87d12 bash -c "$(curl -L https://raw.githubusercontent.com/DataDog/dd-agent/master/packaging/datadog-agent/source/install_agent.sh)" DD_INSTALL_ONLY=true
+f.	Copy the datadog installation command and run it in the terminal:<br />
+<br />
+DD_API_KEY=c08db2089f1d3ea2ee9f6238c2e87d12 bash -c "$(curl -L https://raw.githubusercontent.com/DataDog/dd-agent/master/packaging/datadog-agent/source/install_agent.sh)" DD_INSTALL_ONLY=true
 	 
 
 g.	Running this command would automatically start the datadog agent data collection for the Ubuntu server:
@@ -242,11 +223,11 @@ c.	Click on Edit Tags and enter.
 
 ### 		Via Config file
 	
-a.	From your vagrant terminal, go to the datadog configuration directory via command:
-	/etc/dd-agent
+a.	From your vagrant terminal, go to the datadog configuration directory via command:<br />
+/etc/dd-agent
 
-b.	Open and edit the configuration file - datadog.conf
-	sudo vi datadog.conf
+b.	Open and edit the configuration file - datadog.conf<br />
+sudo vi datadog.conf
 
 c.	On line 30-31, you will find a comment and a template for adding host tags:
  
@@ -254,8 +235,8 @@ c.	On line 30-31, you will find a comment and a template for adding host tags:
 d.	Copy the template, update and save the file.
  
 
-e.	Restart the datadog agent via command:
-	sudo /etc/init.d/datadog-agent restart
+e.	Restart the datadog agent via command:<br />
+sudo /etc/init.d/datadog-agent restart
 
 f.	You can now find the tags in the UI:
  
@@ -272,14 +253,14 @@ c.	Type in MySQL in the search box and click on the Configure.
 d.	Click on Generate Password for convenience. This will update the command lines with the same password for your convenience.
  
 
-e.	Copy the commands and execute in the vagrant terminal where you have installed the MySQL:
-	sudo mysql -e "CREATE USER 'datadog'@'localhost' IDENTIFIED BY 'AfpJBxoAbcwKQGY3V5zs7Vfj';"
-	sudo mysql -e "GRANT REPLICATION CLIENT ON *.* TO 'datadog'@'localhost' WITH MAX_USER_CONNECTIONS 5;"
-	sudo mysql -e "GRANT PROCESS ON *.* TO 'datadog'@'localhost';"
-	sudo mysql -e "GRANT SELECT ON performance_schema.* TO 'datadog'@'localhost';"
+e.	Copy the commands and execute in the vagrant terminal where you have installed the MySQL:<br />
+sudo mysql -e "CREATE USER 'datadog'@'localhost' IDENTIFIED BY 'AfpJBxoAbcwKQGY3V5zs7Vfj';"<br />
+sudo mysql -e "GRANT REPLICATION CLIENT ON *.* TO 'datadog'@'localhost' WITH MAX_USER_CONNECTIONS 5;"<br />
+sudo mysql -e "GRANT PROCESS ON *.* TO 'datadog'@'localhost';"<br />
+sudo mysql -e "GRANT SELECT ON performance_schema.* TO 'datadog'@'localhost';"<br />
 
-*** You may encounter the error “ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: NO)”, when you do, append the command lines with –u root –p. You will be prompted with the root password.
-	Ex. sudo mysql -e "CREATE USER 'datadog'@'localhost' IDENTIFIED BY 'AfpJBxoAbcwKQGY3V5zs7Vfj';" –u root –p
+*** You may encounter the error “ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: NO)”, when you do, append the command lines with –u root –p. You will be prompted with the root password.<br />
+Ex. sudo mysql -e "CREATE USER 'datadog'@'localhost' IDENTIFIED BY 'AfpJBxoAbcwKQGY3V5zs7Vfj';" –u root –p
 f.	Verify the changes using the commands from the UI:
  
 			Result:
@@ -290,10 +271,10 @@ f.	Verify the changes using the commands from the UI:
 g.	You now have to configure an Agent for MySQL. Go to directory /etc/dd-agent/conf.d and create a file named mysql.yaml.
 h.	Copy the configuration from the UI and paste it in mysql.yaml.
  
-i.	Save the file and restart the datadog agent using command:
-	sudo /etc/init.d/datadog-agent restart
-j.	Execute the info command below:
-	sudo /etc/init.d/datadog-agent info
+i.	Save the file and restart the datadog agent using command:<br />
+sudo /etc/init.d/datadog-agent restart
+j.	Execute the info command below:<br />
+sudo /etc/init.d/datadog-agent info
 
 You should be able to see this under Checks:
  
@@ -306,10 +287,10 @@ b.	Custom Check Script – create a script in the checks.d directory similarly n
 c.	Below is a custom check agent script that sends a random number metric named ‘test.random.support’ to Datadog:
  
 
-d.	Restart the datadog agent.
-	sudo /etc/init.d/datadog-agent restart
-e.	execute the Datadog info command and you should see that the custom check is now included under Checks:
-	sudo /etc/init.d/datadog-agent info
+d.	Restart the datadog agent.<br />
+sudo /etc/init.d/datadog-agent restart
+e.	execute the Datadog info command and you should see that the custom check is now included under Checks:<br />
+sudo /etc/init.d/datadog-agent info
  
 
 
