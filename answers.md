@@ -10,7 +10,7 @@
   - [MYSQL Installation](#mysql-installation)
 + [Data Collection](#data-collection)
   - [Datadog Sign Up and Vagrant Integration](#datadog-sign-up-and-vagrant-integration)</br>
-&ensp;&ensp;Bonus Question: [What is an Agent?](#what-is-an-agent?)
+&ensp;&ensp;Bonus Question: [What is an Agent?](#what-is-an-agent-)
   - [Adding Tags to Host](#adding-tags-to-host)
   - [MySQL Integration](#mysql-integration)
   - [Custom Check](#custom-check)
