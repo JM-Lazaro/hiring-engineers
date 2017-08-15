@@ -131,8 +131,8 @@ This exercise will show you how to put tags on your host/s. It is useful to dist
   2. Open and edit the configuration file - datadog.conf</br>
 	&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;`sudo vi datadog.conf`
   3. On line 30-31, you will find a comment and a template for adding host tags:</br>
-	`30 # Set the host's tags (optional)`</br>
-	`31 # tags: mytag, env:prod, role:database`
+	&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;`30 # Set the host's tags (optional)`</br>
+	&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;`31 # tags: mytag, env:prod, role:database`
   4. Copy the sample line excluding the comment and update it with your tag, update and save the file.</br>
 ![config_tag1](https://user-images.githubusercontent.com/30991348/29322997-fef8c9a6-8222-11e7-8c19-e09bd5f8571c.png)
   5. Restart the datadog agent via command:</br>
