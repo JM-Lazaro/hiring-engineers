@@ -56,7 +56,7 @@ To start with, you need to set-up the application stack in your Mac OS X. It wil
   5. We will also be using VirtualBox for VM provisioning. To install, go to https://www.virtualbox.org/wiki/Downloads  and click on the OS X hosts option.
   6. The installer works exactly the same as with Vagrant. Follow steps 2-3.
   7. You would see the message below once you installation successfully completes.
- 
+ __insert screenshot__
  The commands below are simple vagrants that you may use:
  ```
  vagrant up      #start/create a Vagrant instance
@@ -80,7 +80,7 @@ To start with, you need to set-up the application stack in your Mac OS X. It wil
   5. The MySQL server should be automatically up and running after the installation. To verify, check the mysql background process and try logging in:<br />
 &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;`ps –ef | grep mysql`
 &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;`mysql –u root -p` <--_NOTE:you will be prompted to use the MySQL root credentials that you created during its installation_
-
+__insert screenshot__
 
 
 # Data Collection
