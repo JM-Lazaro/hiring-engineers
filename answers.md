@@ -91,7 +91,7 @@ Now that you have set-up your application suite, you can now proceed with your s
   1. Go to [datadog homepage](https://www.datadoghq.com) and click on __GET STARTED FOR FREE__.
   2. Fill-in the form that will pop-up with your details and __Sign up__:
   	__INSERT SCREENSHOT__
-  3. In the next step, you can answer the surveys about the softwares and services that you are currently using. This step is optional.
+  3. In the next step, you can answer the surveys about the softwares and services that you are currently using. Answer the survey and click on __Next__.
   4. Lastly, you will be required to install a datadog agent in your host server. Select Ubuntu from the left side menu to get the instructions:
     	__INSERT SCREENSHOT__
   5. Install curl before executing the script from the Datadog instructions by running the command below in the vagrant terminal:<br />
@@ -101,9 +101,8 @@ Now that you have set-up your application suite, you can now proceed with your s
 DD_API_KEY=c08db2089f1d3ea2ee9f6238c2e87d12 bash -c "$(curl -L https://raw.githubusercontent.com/DataDog/dd-agent/master/packaging/datadog-agent/source/install_agent.sh)" DD_INSTALL_ONLY=true
 ```
 _NOTE:Replace the DD_API_KEY with the key that will be generated for your account_
-  7. Running this command would automatically start the datadog agent data collection for the Ubuntu server:
-      	__INSERT SCREENSHOT__<br />
-  8. After a few seconds, Datadog will receive the data from your host and you can now click on the Finish button in the lower right to complete the sign-up.
+  Running this command would automatically start the datadog agent data collection for the Vagrant server.
+  7. After a few seconds, Datadog will receive the data from your host and you can now click on the Finish button in the lower right to complete the sign-up.
     	__INSERT SCREENSHOT__<br />
 
 Below are basic datadog commands that you can enter in the terminal:
@@ -117,14 +116,6 @@ sudo /etc/init.d/datadog-agent info -v 	#displays a more detailed(verbose) infor
 
 ## 	Adding Tags to Host
 This exercise will show you how to put tags on your host/s. It is useful to distinguish your hosts from each other especially when you are using multiple servers.
-
-### Via Website
-  1. From the left side menu, mouse over on __Infrastructure__ and click on __Infrastructure List__.
-  2. On the upper right corner, click on __Update Host Tags__.
-  3. Click on __Edit Tags__ and enter.
-  
-</br>&ensp;&ensp;&ensp;&ensp;Host Map
-    	__INSERT SCREENSHOT__
 	
 ### Via Config file
   1. From your Vagrant terminal, go to the datadog configuration directory via command:</br>
@@ -132,7 +123,10 @@ This exercise will show you how to put tags on your host/s. It is useful to dist
   2. Open and edit the configuration file - datadog.conf</br>
 	&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;`sudo vi datadog.conf`
   3. On line 30-31, you will find a comment and a template for adding host tags:</br>
-		__INSERT SCREENSHOT__
+	```
+	30 # Set the host's tags (optional)
+	31 # tags: mytag, env:prod, role:database
+	```
   4. Copy the sample line excluding the comment and update it with your tag, update and save the file.
 		__INSERT SCREENSHOT__
   5. Restart the datadog agent via command:</br>
@@ -141,12 +135,25 @@ This exercise will show you how to put tags on your host/s. It is useful to dist
  
 </br>&ensp;&ensp;&ensp;&ensp;Host Map
 __INSERT SCREENSHOT__
+
+### Via Website
+  1. From the left side menu, mouse over on __Infrastructure__ and click on __Infrastructure List__.
+  2. On the upper right corner, click on __Update Host Tags__.
+  __INSERT SCREENSHOT__
+  3. Click on __Edit Tags__ and enter.
+  
+</br>&ensp;&ensp;&ensp;&ensp;Host Map
+    	__INSERT SCREENSHOT__
+
+
  
 ## 	MySQL Integration
 Next, integrate your MySQL to send your database metrics to Datadog. Replace the __[datadog db password]__ with your own from the commands below whenever applicable.
   1. On the left side menu of the Datadog UI, mouse over on __Integrations__ and click on __Integrations__.
-  2. Type in MySQL in the search box and click on the __Configure__.
+  2. Type in MySQL in the search box and click on __Available__.
+  __INSERT SCREENSHOT__
   3. Click on __Generate Password__ for convenience. This will update the command lines with the same password for your convenience.
+  __INSERT SCREENSHOT__
   4. Copy the commands and execute in the vagrant terminal where you have installed the MySQL:<br />
 ```
 sudo mysql -e "CREATE USER 'datadog'@'localhost' IDENTIFIED BY '[datadog db password]';"
@@ -232,6 +239,9 @@ To create a custom check, you need to create two components:
     def check(self, instance):
         self.gauge('test.support.random', random.random())
   ```
+  
+  __insert screenshot__
+  
   3. Restart the datadog agent:
    `sudo /etc/init.d/datadog-agent restart`
   4. execute the Datadog info command and you should see that the custom check is now included under Checks:
@@ -246,33 +256,33 @@ In Datadog, you can create two kinds of dashboards - the Timeboard and the Scree
   * The Timeboard is primarily for internal use like investigations and alerts. You can set-up monitoring based from these graphs. You can also share snapshots of a graph to internal teams via annotations. 
   * The Screenboard’s primary purpose is for public viewing. It has features solely for making viewing aesthetically pleasing and intuitive such as including widgets, images and Hostmap on the screen.
 
-
+Both of these type of dashboard can be created by:
+  1. From the left side menu of the Datadog UI, mouse over on __Dasboards__ and click on __New Dashboard__.
+  2. Populate the dashboard name, pick the type of dashboard you need and click on __New Timeboard/New Screenboard__.
+   __insert screenshot__
+   
+### Custom Agent Check Timeboard
+  1. After choosing timeboard, you will be prompted to set-up your newly created dashboard.
+  2. You can choose any of the objects available but for now, drag __Time Series__ into the blank space on the lower part of the page:
+__insert screenshot__
+  3. the Graph Editor box will pop-up to configure the graph:
+     1. Set visualization to __Timeseries__ and choose the __test.support.random metric__.
+     __insert screenshot__
+     2. Set the graph title then click on Save and Finish Editing. Your graph will look like this:
+     __insert screenshot__
 
 ### Database Integration Screenboard
-  1. To create a screenboard, go to the Datadog UI.
-  2. From the left side menu, mouse over on __Dasboards__ and click on __New Dashboard__.
-  3. Populate the dashboard name and click on __New Screenboard__.
-  4. You can choose any of the objects available but for now, drag __Graph__ into the blank space on the lower part of the page:
-    __insert screenshot__
-  5. the __Graph Editor__ box will pop-up to configure the graph:
-     1. Set visualization to Timeseries.
+  1. After choosing screenboard, you will be prompted to set-up your newly created dashboard.
+  2. You can choose any of the objects available but for now, drag __Graph__ into the blank space on the lower part of the page.
+  3. the __Graph Editor__ box will pop-up to configure the graph:
+     1. Set visualization to __Time Series__.
      2. Choose the metrics from MySQL and also the test.support.random metric. You can also click on __Add Metric__ to include more.
  
      3. Set the display preferences and Widget Title and click Done.
     __insert screenshot__
      4. Click on __Save Changes__ and you now have your database screenboard:
    __insert screenshot__
-   
-### Custom Agent Check Timeboard
-  1. From the left side menu of the Datadog UI, mouse over on __Dasboards__ and click on __New Dashboard__.
-  3. Fill in the dashboard name and click on __New Timeboard__.
-  4. You can choose any of the objects available but for now, drag __Time Series__ into the blank space on the lower part of the page:
-__insert screenshot__
-  5. the Graph Editor box will pop-up to configure the graph:
-     1. Set visualization to __Timeseries__ and choose the __test.support.random metric__.
-     2. Set the graph title then click on Save and Finish Editing. Your dashboard will look like this:
-     __insert screenshot__
-     
+  
 ### Dashboard Cloning
 You can also create copies of your dashboard by cloning it. To create a clone you just need to:
   1. Click on the gear icon on the upper right of the dashboard page and choose __Clone Dashboard__:
