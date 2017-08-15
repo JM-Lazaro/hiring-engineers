@@ -50,7 +50,7 @@ To start with, you need to set-up the application stack in your Mac OS X. It wil
 ## 	Vagrant Ubuntu and VirtualBox Installation
 
   1. To download the Vagrant installer, go to the [vagrant downloads site](https://www.vagrantup.com/downloads.html) and choose the installer for Mac OS X.
-  2. Open the downloaded DMG file and double-click on vagrant.pkg.
+  2. Open the downloaded DMG file and double-click on vagrant.pkg.</br>
 &ensp;&ensp;<img width="310" height="218" src="https://user-images.githubusercontent.com/30991348/29323613-ca91b130-8224-11e7-8ce1-32bf85ce4092.png">&ensp;
   3. The steps are straightforward, the only parameter that you may want to change is in the Destination Select step which is sometimes skipped while clicking next. When that happens, click on the Change Install Location during the Installation Type step:</br>
 &ensp;&ensp;<img width="310" height="218" src="https://user-images.githubusercontent.com/30991348/29323032-009acfd4-8223-11e7-8ba1-9375f5cf3594.png">&ensp;
