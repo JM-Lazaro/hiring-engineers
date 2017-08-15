@@ -144,19 +144,19 @@ This exercise will show you how to put tags on your host/s. It is useful to dist
 ### Via Website
   1. From the left side menu, mouse over on __Infrastructure__ and click on __Infrastructure List__.
   2. On the upper right corner, click on __Update Host Tags__.</br>
-![ui_tag1](https://user-images.githubusercontent.com/30991348/29323029-00661d48-8223-11e7-8af5-613c5b0a7a84.png)
+  ![ui_tag1](https://user-images.githubusercontent.com/30991348/29323029-00661d48-8223-11e7-8af5-613c5b0a7a84.png)
   3. Click on __Edit Tags__ and enter.</br>
   ![ui_tag2](https://user-images.githubusercontent.com/30991348/29323030-006e955e-8223-11e7-8228-a986af0ca3c1.png)</br>
   &ensp;&ensp;&ensp;&ensp;__Host Map__</br>
-![hostmap_ui](https://user-images.githubusercontent.com/30991348/29323006-ff5a0bda-8222-11e7-826d-b3d5571e91ee.png)</br>
+  ![hostmap_ui](https://user-images.githubusercontent.com/30991348/29323006-ff5a0bda-8222-11e7-826d-b3d5571e91ee.png)</br>
  
 ## 	MySQL Integration
 Next, integrate your MySQL to send your database metrics to Datadog. Replace the __[datadog db password]__ with your own from the commands below whenever applicable.
   1. On the left side menu of the Datadog UI, mouse over on __Integrations__ and click on __Integrations__.
   2. Type in MySQL in the search box and click on __Available__.</br>
-![mysql_available](https://user-images.githubusercontent.com/30991348/29323011-ff934d8c-8222-11e7-993a-5031a15bb7dd.png)
+  ![mysql_available](https://user-images.githubusercontent.com/30991348/29323011-ff934d8c-8222-11e7-993a-5031a15bb7dd.png)
   3. Click on __Generate Password__ for convenience. This will update the command lines with the same password for your convenience.</br>
-![mysql_genpassword](https://user-images.githubusercontent.com/30991348/29323013-ffac7366-8222-11e7-9851-01fcab8c9b7a.png)
+  ![mysql_genpassword](https://user-images.githubusercontent.com/30991348/29323013-ffac7366-8222-11e7-9851-01fcab8c9b7a.png)
   4. Copy the commands and execute in the vagrant terminal where you have installed the MySQL:<br />
 ```
 sudo mysql -e "CREATE USER 'datadog'@'localhost' IDENTIFIED BY '[datadog db password]';"
