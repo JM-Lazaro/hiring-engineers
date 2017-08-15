@@ -15,7 +15,7 @@
   - [MySQL Integration](#mysql-integration)
   - [Custom Check](#custom-check)
   - [Database Integration Screenboard](#database-integration-screenboard)
-  - [Timeboard vs. Screenboard](#timeboard-vs.-screenboard)
+  - [Timeboard and Screenboard](#timeboard-and-screenboard)
   - [Dashboard Cloning](#dashboard-cloning)
   - [Custom Agent Check Timeboard](#custom-agent-timeboard)
 + [Alerts and Monitoring](#alerts-and-monitoring)
@@ -96,16 +96,15 @@ Now that you have set-up your application suite, you can now proceed with your s
     	__INSERT SCREENSHOT__
   5. Install curl before executing the script from the Datadog instructions by running the command below in the vagrant terminal:<br />
 &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;`sudo apt-get install curl`
-  6. Copy the datadog installation command and run it in the terminal:<br />
+  6. Copy the datadog installation command and run it in the terminal:
 ```
 DD_API_KEY=c08db2089f1d3ea2ee9f6238c2e87d12 bash -c "$(curl -L https://raw.githubusercontent.com/DataDog/dd-agent/master/packaging/datadog-agent/source/install_agent.sh)" DD_INSTALL_ONLY=true
 ```
-<br />
 _NOTE:Replace the DD_API_KEY with the key that will be generated for your account_
   7. Running this command would automatically start the datadog agent data collection for the Ubuntu server:
-      	__INSERT SCREENSHOT__
+      	__INSERT SCREENSHOT__<br />
   8. After a few seconds, Datadog will receive the data from your host and you can now click on the Finish button in the lower right to complete the sign-up.
-    	__INSERT SCREENSHOT__
+    	__INSERT SCREENSHOT__<br />
 
 Below are basic datadog commands that you can enter in the terminal:
 ```
@@ -141,64 +140,127 @@ This exercise will show you how to put tags on your host/s. It is useful to dist
   6. You can now find the tags in the UI:</br>
  
 </br>&ensp;&ensp;&ensp;&ensp;Host Map
-
+__INSERT SCREENSHOT__
  
 ## 	MySQL Integration
-Next, integrate your MySQL to send data to Datadog.
-  1. On the left side menu of the Datadog UI, mouse over on Integrations and click on Integrations.
-  2. Type in MySQL in the search box and click on the Configure.
-  3. Click on Generate Password for convenience. This will update the command lines with the same password for your convenience.
+Next, integrate your MySQL to send your database metrics to Datadog. Replace the __[datadog db password]__ with your own from the commands below whenever applicable.
+  1. On the left side menu of the Datadog UI, mouse over on __Integrations__ and click on __Integrations__.
+  2. Type in MySQL in the search box and click on the __Configure__.
+  3. Click on __Generate Password__ for convenience. This will update the command lines with the same password for your convenience.
   4. Copy the commands and execute in the vagrant terminal where you have installed the MySQL:<br />
 ```
-sudo mysql -e "CREATE USER 'datadog'@'localhost' IDENTIFIED BY 'AfpJBxoAbcwKQGY3V5zs7Vfj';"<br />
-sudo mysql -e "GRANT REPLICATION CLIENT ON *.* TO 'datadog'@'localhost' WITH MAX_USER_CONNECTIONS 5;"<br />
-sudo mysql -e "GRANT PROCESS ON *.* TO 'datadog'@'localhost';"<br />
-sudo mysql -e "GRANT SELECT ON performance_schema.* TO 'datadog'@'localhost';"<br />
+sudo mysql -e "CREATE USER 'datadog'@'localhost' IDENTIFIED BY '[datadog db password]';"
+sudo mysql -e "GRANT REPLICATION CLIENT ON *.* TO 'datadog'@'localhost' WITH MAX_USER_CONNECTIONS 5;"
+sudo mysql -e "GRANT PROCESS ON *.* TO 'datadog'@'localhost';"
+sudo mysql -e "GRANT SELECT ON performance_schema.* TO 'datadog'@'localhost';"
 ```
 _NOTE: You may encounter the error “ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: NO)”, when you do, append the command lines with –u root –p. You will be prompted with the root password.<br />
-Ex. &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;`sudo mysql -e "CREATE USER 'datadog'@'localhost' IDENTIFIED BY 'AfpJBxoAbcwKQGY3V5zs7Vfj';" –u root –p`_
-  5. Verify the changes using the commands from the UI:
+Ex. &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;`sudo mysql -e "CREATE USER 'datadog'@'localhost' IDENTIFIED BY '[datadog password]';" –u root –p`_<br />
+  5. Verify the changes using the commands:
+  ```
+  mysql -u datadog --password=<datadog db password> -e "show status" | \
+  grep Uptime && echo -e "\033[0;32mMySQL user - OK\033[0m" || \
+  echo -e "\033[0;31mCannot connect to MySQL\033[0m"
+  mysql -u datadog --password=[datadog db password] -e "show slave status" && \
+  echo -e "\033[0;32mMySQL grant - OK\033[0m" || \
+  echo -e "\033[0;31mMissing REPLICATION CLIENT grant\033[0m"
+  ```
+  Result:
  
-			Result:
+__insert screenshot__
+  ```
+  mysql -u datadog --password=[datadog db password] -e "SELECT * FROM performance_schema.threads" && \
+  echo -e "\033[0;32mMySQL SELECT grant - OK\033[0m" || \
+  echo -e "\033[0;31mMissing SELECT grant\033[0m"
+  mysql -u datadog --password=[datadog db password] -e "SELECT * FROM INFORMATION_SCHEMA.PROCESSLIST" && \
+  echo -e "\033[0;32mMySQL PROCESS grant - OK\033[0m" || \
+  echo -e "\033[0;31mMissing PROCESS grant\033[0m"
+  ```
+  Result:
+  __insert screenshot__
  
- 
-			Result:
- 
-  6. You now have to configure an Agent for MySQL. Go to directory /etc/dd-agent/conf.d and create a file named mysql.yaml.
+  6. Now we just have to create the MySQL configuration file for the Agent.  Go to directory __/etc/dd-agent/conf.d__ and create a file named mysql.yaml.
+  ```
+  cd /etc/dd-agent/conf.d
+  sudo vi mysql.yaml
+  ```
   7. Copy the configuration from the UI and paste it in mysql.yaml.
+  ```
+  init_config:
+
+  instances:
+  - server: localhost
+    user: datadog
+    pass: [datadog db password]
+    tags:
+        - optional_tag1
+        - optional_tag2
+    options:
+        replication: 0
+        galera_cluster: 1
+   ```
  
-  8. Save the file and restart the datadog agent using command:<br />
-&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;`sudo /etc/init.d/datadog-agent restart`
-  9. Execute the info command below:<br />
-&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;`sudo /etc/init.d/datadog-agent info`
+  8. Save the file and restart the datadog agent:
+   `sudo /etc/init.d/datadog-agent restart`
+  9. Execute the info command below:
+   `sudo /etc/init.d/datadog-agent info`
 
 You should be able to see this under Checks:
+__insert screenshot__
  
 ## 	Custom Check
-To create a custom check, you need to create an integration configuration file and the custom check script. 
-  1. Integration config file - Create a config file in conf.d directory with a .yaml extension and contains:
-  2. Custom Check Script – create a script in the checks.d directory similarly named as the config file but with a .py extension. 
-  3. Below is a custom check agent script that sends a random number metric named ‘test.random.support’ to Datadog:
-  4. Restart the datadog agent.<br />
-&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;`sudo /etc/init.d/datadog-agent restart`
-  5. execute the Datadog info command and you should see that the custom check is now included under Checks:<br />
-&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;`sudo /etc/init.d/datadog-agent info`
- 
-## 	Visualizing your Data
 
-### 		Database Integration Screenboard
+To create a custom check, you need to create two components:
+  - Integration Config file - a config file in __/etc/dd-agent/conf.d__ directory with a .yaml extension.
+  - Custom Check Script     – a python script in the __/etc/dd-agent/checks.d__ directory similarly named as the config file but with a .py extension. _Ex. myscript.yaml, myscript.py_
+  
+ Follow the steps below to create a custome check that generates a random number(from 0-1) metric and send it to Datadog named as "test.random.support".
+  1. Create a file named cc_random.yaml into the __conf.d__ directory and type in:
+  ```
+  init_config:
+
+  instances:
+    [{}]
+  ```
+  2. Create a file named cc_random.py into the __checks.d__ directory and type in:
+  ```
+  import random
+
+  from checks import AgentCheck
+
+  class HelloCheck(AgentCheck):
+    def check(self, instance):
+        self.gauge('test.support.random', random.random())
+  ```
+  3. Restart the datadog agent:
+   `sudo /etc/init.d/datadog-agent restart`
+  4. execute the Datadog info command and you should see that the custom check is now included under Checks:
+   `sudo /etc/init.d/datadog-agent info`
+   __insert screenshot__
+ 
+## Visualizing your Data
+
+
+### Timeboard and Screenboard
+In Datadog, you can create two kinds of dashboards - the Timeboard and the Screenboard. The difference of these boards are their main purpose.
+  * The Timeboard is primarily for internal use like investigations and alerts. You can set-up monitoring based from these graphs. You can also share snapshots of a graph to internal teams via annotations. 
+  * The Screenboard’s primary purpose is for public viewing. It has features solely for making viewing aesthetically pleasing and intuitive such as including widgets, images and Hostmap on the screen.
+
+
+
+### Database Integration Screenboard
   1. To create a screenboard, go to the Datadog UI.
-  2. From the left side menu, mouse over on Dasboards and click on New Dashboard.
-  3. Fill in the dashboard name and click on New Screenboard.
-  4. You can choose any of the objects available but for now, drag Graph into the blank space on the lower part of the page:
+  2. From the left side menu, mouse over on __Dasboards__ and click on __New Dashboard__.
+  3. Populate the dashboard name and click on __New Screenboard__.
+  4. You can choose any of the objects available but for now, drag __Graph__ into the blank space on the lower part of the page:
  
-  5. the Graph Editor box will pop-up to configure the graph:
+  5. the __Graph Editor__ box will pop-up to configure the graph:
      1. Set visualization to Timeseries.
-     2. Choose the metrics from MySQL and also the test.support.random metric. You can also click on Add Metric to include more.
+     2. Choose the metrics from MySQL and also the test.support.random metric. You can also click on __Add Metric__ to include more.
  
-     3. Finally, set the display preferences and Widget Title and click Done.
+     3. Set the display preferences and Widget Title and click Done.
  
-     4. Click on Save Changes and you now have your database screenboard:
+     4. Click on __Save Changes__ and you now have your database screenboard:
 
  
 
