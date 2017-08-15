@@ -209,9 +209,9 @@ Ex. `sudo mysql -e "CREATE USER 'datadog'@'localhost' IDENTIFIED BY '[datadog pa
         galera_cluster: 1
    ```
  
-  8. Save the file and restart the datadog agent:
+  8. Save the file and restart the datadog agent:<br />
    `sudo /etc/init.d/datadog-agent restart`
-  9. Execute the info command below:
+  9. Execute the info command below:<br />
    `sudo /etc/init.d/datadog-agent info`
 
 You should be able to see this under Checks:<br />
