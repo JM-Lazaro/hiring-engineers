@@ -51,15 +51,15 @@ To start with, you need to set-up the application stack in your Mac OS X. It wil
 
   1. To download the Vagrant installer, go to the [vagrant downloads site](https://www.vagrantup.com/downloads.html) and choose the installer for Mac OS X.
   2. Open the downloaded DMG file and double-click on vagrant.pkg.
-![vagrant_install1b](https://user-images.githubusercontent.com/30991348/29323031-008e9aac-8223-11e7-9551-0a6899621b85.png)
+  ![vagrant_install1b](https://user-images.githubusercontent.com/30991348/29323031-008e9aac-8223-11e7-9551-0a6899621b85.png)
   3. The steps are straightforward, the only parameter that you may want to change is in the Destination Select step which is sometimes skipped while clicking next. When that happens, click on the Change Install Location during the Installation Type step:</br>
-![vagrant_intstall2b](https://user-images.githubusercontent.com/30991348/29323032-009acfd4-8223-11e7-8ba1-9375f5cf3594.png)
+  ![vagrant_intstall2b](https://user-images.githubusercontent.com/30991348/29323032-009acfd4-8223-11e7-8ba1-9375f5cf3594.png)
   4. You would see the message below if the installation is a success. If you encounter any issues, please check the amount of diskspace available on your computer or if your operating system’s compatibility.</br>
-![vagrant_success](https://user-images.githubusercontent.com/30991348/29323613-ca91b130-8224-11e7-8ce1-32bf85ce4092.png)
+  ![vagrant_success](https://user-images.githubusercontent.com/30991348/29323613-ca91b130-8224-11e7-8ce1-32bf85ce4092.png)
   5. We will also be using VirtualBox for VM provisioning. To install, go to https://www.virtualbox.org/wiki/Downloads  and click on the OS X hosts option.
   6. The installer works exactly the same as with Vagrant. Follow steps 2-3.
   7. You would see the message below once you installation successfully completes.
-![virtualbox_success](https://user-images.githubusercontent.com/30991348/29323033-009e9c18-8223-11e7-93cf-c6f839236aa3.png)
+  ![virtualbox_success](https://user-images.githubusercontent.com/30991348/29323033-009e9c18-8223-11e7-93cf-c6f839236aa3.png)
  The commands below are simple vagrants that you may use:
  ```
  vagrant up      #start/create a Vagrant instance
@@ -83,7 +83,7 @@ To start with, you need to set-up the application stack in your Mac OS X. It wil
   5. The MySQL server should be automatically up and running after the installation. To verify, check the mysql background process and try logging in:<br />
 &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;`ps –ef | grep mysql`<br />
 &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;`mysql –u root -p` <--_NOTE:you will be prompted to use the MySQL root credentials that you created during its installation_
-![mysql_hc](https://user-images.githubusercontent.com/30991348/29323014-ffb2cc20-8222-11e7-9455-3599748cfebc.png)
+  ![mysql_hc](https://user-images.githubusercontent.com/30991348/29323014-ffb2cc20-8222-11e7-9455-3599748cfebc.png)
 
 
 # Data Collection
@@ -93,10 +93,10 @@ Now that you have set-up your application suite, you can now proceed with your s
 ### Datadog Sign Up and Vagrant Integration
   1. Go to [datadog homepage](https://www.datadoghq.com) and click on __GET STARTED FOR FREE__.
   2. Fill-in the form that will pop-up with your details and __Sign up__:<br />
-![signup_details](https://user-images.githubusercontent.com/30991348/29323021-0006497c-8223-11e7-8249-8b80d08cf9e9.png)
+  ![signup_details](https://user-images.githubusercontent.com/30991348/29323021-0006497c-8223-11e7-8249-8b80d08cf9e9.png)
   3. In the next step, you can answer the surveys about the softwares and services that you are currently using. Answer the survey and click on __Next__.
   4. Lastly, you will be required to install a datadog agent in your host server. Select Ubuntu from the left side menu to get the instructions:
-![agent_setup1](https://user-images.githubusercontent.com/30991348/29322992-fe90d684-8222-11e7-97fa-6af4662799fa.png)
+  ![agent_setup1](https://user-images.githubusercontent.com/30991348/29322992-fe90d684-8222-11e7-97fa-6af4662799fa.png)
   5. Install curl before executing the script from the Datadog instructions by running the command below in the vagrant terminal:<br />
 &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;`sudo apt-get install curl`
   6. Copy the datadog installation command and run it in the terminal:
@@ -106,7 +106,7 @@ DD_API_KEY=c08db2089f1d3ea2ee9f6238c2e87d12 bash -c "$(curl -L https://raw.githu
 _NOTE:Replace the DD_API_KEY with the key that will be generated for your account_
   Running this command would automatically start the datadog agent data collection for the Vagrant server.
   7. After a few seconds, Datadog will receive the data from your host and you can now click on the Finish button in the lower right to complete the sign-up.<br />
-![agent_setup2](https://user-images.githubusercontent.com/30991348/29322996-fef816fa-8222-11e7-8f50-71c4e0397c47.png)
+  ![agent_setup2](https://user-images.githubusercontent.com/30991348/29322996-fef816fa-8222-11e7-8f50-71c4e0397c47.png)
 <br />
 
 Below are basic datadog commands that you can enter in the terminal:
@@ -134,12 +134,12 @@ This exercise will show you how to put tags on your host/s. It is useful to dist
 	&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;`30 # Set the host's tags (optional)`</br>
 	&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;`31 # tags: mytag, env:prod, role:database`
   4. Copy the sample line excluding the comment and update it with your tag, update and save the file.</br>
-![config_tag1](https://user-images.githubusercontent.com/30991348/29322997-fef8c9a6-8222-11e7-8c19-e09bd5f8571c.png)
+  ![config_tag1](https://user-images.githubusercontent.com/30991348/29322997-fef8c9a6-8222-11e7-8c19-e09bd5f8571c.png)
   5. Restart the datadog agent via command:</br>
 	&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;`sudo /etc/init.d/datadog-agent restart`
   6. You can now find the tags in the UI:</br>
 &ensp;&ensp;&ensp;&ensp;__Host Map__</br>
-![hostmap_config](https://user-images.githubusercontent.com/30991348/29323004-ff3ec8ca-8222-11e7-92ca-c6129c3a024d.png)
+  ![hostmap_config](https://user-images.githubusercontent.com/30991348/29323004-ff3ec8ca-8222-11e7-92ca-c6129c3a024d.png)
 
 ### Via Website
   1. From the left side menu, mouse over on __Infrastructure__ and click on __Infrastructure List__.
@@ -150,7 +150,7 @@ This exercise will show you how to put tags on your host/s. It is useful to dist
   &ensp;&ensp;&ensp;&ensp;__Host Map__</br>
   ![hostmap_ui](https://user-images.githubusercontent.com/30991348/29323006-ff5a0bda-8222-11e7-826d-b3d5571e91ee.png)</br>
  
-## 	MySQL Integration
+## MySQL Integration
 Next, integrate your MySQL to send your database metrics to Datadog. Replace the __[datadog db password]__ with your own from the commands below whenever applicable.
   1. On the left side menu of the Datadog UI, mouse over on __Integrations__ and click on __Integrations__.
   2. Type in MySQL in the search box and click on __Available__.</br>
@@ -176,7 +176,7 @@ Ex. `sudo mysql -e "CREATE USER 'datadog'@'localhost' IDENTIFIED BY '[datadog pa
   echo -e "\033[0;31mMissing REPLICATION CLIENT grant\033[0m"
   ```
   Result:<br />
-![mysql_verif1](https://user-images.githubusercontent.com/30991348/29323015-ffb6d5fe-8222-11e7-8eab-af9a70d04f22.png)<br />
+  ![mysql_verif1](https://user-images.githubusercontent.com/30991348/29323015-ffb6d5fe-8222-11e7-8eab-af9a70d04f22.png)<br />
   ```
   mysql -u datadog --password=[datadog db password] -e "SELECT * FROM performance_schema.threads" && \
   echo -e "\033[0;32mMySQL SELECT grant - OK\033[0m" || \
@@ -186,7 +186,7 @@ Ex. `sudo mysql -e "CREATE USER 'datadog'@'localhost' IDENTIFIED BY '[datadog pa
   echo -e "\033[0;31mMissing PROCESS grant\033[0m"
   ```
   Result:<br />
-![mysql_verif2](https://user-images.githubusercontent.com/30991348/29323016-ffcd7e30-8222-11e7-9b88-6eb83193155b.png)<br />
+  ![mysql_verif2](https://user-images.githubusercontent.com/30991348/29323016-ffcd7e30-8222-11e7-9b88-6eb83193155b.png)<br />
  
   6. Now we just have to create the MySQL configuration file for the Agent.  Go to directory __/etc/dd-agent/conf.d__ and create a file named mysql.yaml.
   ```
@@ -215,7 +215,7 @@ Ex. `sudo mysql -e "CREATE USER 'datadog'@'localhost' IDENTIFIED BY '[datadog pa
    `sudo /etc/init.d/datadog-agent info`
 
 You should be able to see this under Checks:<br />
-![mysql_checks](https://user-images.githubusercontent.com/30991348/29323012-ffa7684e-8222-11e7-874a-7172a2cd2623.png)<br />
+  ![mysql_checks](https://user-images.githubusercontent.com/30991348/29323012-ffa7684e-8222-11e7-874a-7172a2cd2623.png)<br />
  
 ## Custom Agent Check
 
@@ -242,12 +242,12 @@ To create a custom check, you need to create two components:
         self.gauge('test.support.random', random.random())
   ```
   <br />
-![cc_random_files](https://user-images.githubusercontent.com/30991348/29322995-fef783c0-8222-11e7-9bcd-49b3b9485d0a.png)
+  ![cc_random_files](https://user-images.githubusercontent.com/30991348/29322995-fef783c0-8222-11e7-9bcd-49b3b9485d0a.png)
   3. Restart the datadog agent:
    `sudo /etc/init.d/datadog-agent restart`
   4. execute the Datadog info command and you should see that the custom check is now included under Checks:
    `sudo /etc/init.d/datadog-agent info`<br />
-![cc_random_hc](https://user-images.githubusercontent.com/30991348/29322998-fefcc90c-8222-11e7-9ccb-96dda1db77a2.png)<br />
+  ![cc_random_hc](https://user-images.githubusercontent.com/30991348/29322998-fefcc90c-8222-11e7-9ccb-96dda1db77a2.png)<br />
  
 ## Visualizing your Data
   
@@ -259,12 +259,12 @@ In Datadog, you can create two kinds of dashboards - the Timeboard and the Scree
 Both of these type of dashboard can be created by:
   1. From the left side menu of the Datadog UI, mouse over on __Dasboards__ and click on __New Dashboard__.
   2. Populate the dashboard name, pick the type of dashboard you need and click on __New Timeboard/New Screenboard__.<br />
-![timeboard_screenboard](https://user-images.githubusercontent.com/30991348/29323028-00646674-8223-11e7-942b-1a1b86ef2eb4.png)<br />
+  ![timeboard_screenboard](https://user-images.githubusercontent.com/30991348/29323028-00646674-8223-11e7-942b-1a1b86ef2eb4.png)<br />
    
 ### Custom Agent Check Timeboard
   1. After choosing timeboard, you will be prompted to set-up your newly created dashboard.
   2. You can choose any of the objects available but for now, drag __Time Series__ into the blank space on the lower part of the page:<br />
-![timeboard_1](https://user-images.githubusercontent.com/30991348/29323025-002e791a-8223-11e7-9903-b4aa3dc2cc9e.png)
+  ![timeboard_1](https://user-images.githubusercontent.com/30991348/29323025-002e791a-8223-11e7-9903-b4aa3dc2cc9e.png)
   3. the Graph Editor box will pop-up to configure the graph:
      1. Set visualization to __Timeseries__ and choose the __test.support.random metric__.<br />
      ![timeboard_2](https://user-images.githubusercontent.com/30991348/29323026-003d76a4-8223-11e7-802c-c17287037621.png)
@@ -296,7 +296,7 @@ You can also create copies of your dashboard by cloning it. To create a clone yo
 ### Dashboard Snapshot and Notification
 You can send snapshots with annotations using the timeboard graphs.
   1. Hover you mouse over the graph and a camera icon will appear on the upper right corner of the graph. Click on this icon:<br />
-     ![snapshot_1](https://user-images.githubusercontent.com/30991348/29323022-00203c1a-8223-11e7-88cc-39682effb03d.png)
+  ![snapshot_1](https://user-images.githubusercontent.com/30991348/29323022-00203c1a-8223-11e7-88cc-39682effb03d.png)
   2. The mouse cursor will be changed to a pencil and you can use this to draw a box and emphasize certain areas in the graph.
   3. You can also type in your comment in the dialog box below and send an email via annotation:<br />
 
