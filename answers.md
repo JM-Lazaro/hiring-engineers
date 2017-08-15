@@ -9,7 +9,7 @@
   - [Vagrant Ubuntu and VirtualBox](#vagrant-ubuntu-and-virtualbox)
   - [MYSQL](#mysql)
 + [Data Collection](#data-collection)
-  - [Datadog Sign Up](#datadog-sign-up)</br>
+  - [Datadog Sign Up and Vagrant Integration](#datadog-sign-up-and-vagrant-integration)</br>
 &ensp;&ensp;Bonus Question: [What is an Agent?](#what-is-an-agent?)
   - [Adding Tags to Host](#adding-tags-to-host)
   - [MySQL Integration](#mysql-integration)
@@ -33,7 +33,7 @@
 
 # Introduction
 
-With Datadog entering the IT industry in Australia, it is essential to hire competent and passionate employees to be the foundation of the company as it builds it's local client base. This activity is made to be part of the hiring process.
+With Datadog entering the IT industry in Australia, it is essential to hire competent and passionate employees to be the foundation of the company as it builds it's local client base. This activity is part of the hiring process and is intended to be done at home.
 
 This activity will primarily focus on helping you install three topics:
   1. Application Suite Set-up
@@ -85,38 +85,55 @@ To start with, you need to set-up the application stack in your Mac OS X. It wil
 
 # Data Collection
 
-Now that we have set-up our application suite, we will now proceed in integrating Datadog to our system.
-<h3>Datadog Sign Up</h3>
-<ol>
-<li>Go to [datadog homepage](https://www.datadoghq.com) and click the GET STARTED FOR FREE button:</li>
-<li>Fill-in the form that will pop-up with your details and click Sign up:</li>
-<li>In the next step, answer the surveys about the current softwares and services that you are currently using. This step is optional:</li>
-<li>For the final step, install a datadog agent to your host system. Select Ubuntu from the left side menu:</li>
-<li>Install curl before executing the script from the Datadog instructions by running the command below in the vagrant terminal:<br />
-&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;`sudo apt-get install curl`</li>
-<li>Copy the datadog installation command and run it in the terminal:<br />
+Now that you have set-up your application suite, you can now proceed with your system's integration with Datadog. 
+
+### Datadog Sign Up and Vagrant Integration
+  1. Go to [datadog homepage](https://www.datadoghq.com) and click on __GET STARTED FOR FREE__.
+  2. Fill-in the form that will pop-up with your details and __Sign up__:
+  	__INSERT SCREENSHOT__
+  3. In the next step, you can answer the surveys about the softwares and services that you are currently using. This step is optional.
+  4. Lastly, you will be required to install a datadog agent in your host server. Select Ubuntu from the left side menu to get the instructions:
+    	__INSERT SCREENSHOT__
+  5. Install curl before executing the script from the Datadog instructions by running the command below in the vagrant terminal:<br />
+&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;`sudo apt-get install curl`
+  6. Copy the datadog installation command and run it in the terminal:<br />
 <br />
 &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;`DD_API_KEY=c08db2089f1d3ea2ee9f6238c2e87d12 bash -c "$(curl -L https://raw.githubusercontent.com/DataDog/dd-agent/master/packaging/datadog-agent/source/install_agent.sh)" DD_INSTALL_ONLY=true`
-</li>
-<li>Running this command would automatically start the datadog agent data collection for the Ubuntu server:</li>
-<li>After a few seconds, Datadog will receive the data from your host and you can now click on the Finish button in the lower right to complete the sign-up.</li>
-</ol>
+&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;_NOTE:Replace the DD_API_KEY with the key that will be generated for your account_
+  7. Running this command would automatically start the datadog agent data collection for the Ubuntu server:
+      	__INSERT SCREENSHOT__
+  8. After a few seconds, Datadog will receive the data from your host and you can now click on the Finish button in the lower right to complete the sign-up.
+    	__INSERT SCREENSHOT__
+
+Below are basic datadog commands that you can enter in the terminal:
+```
+sudo /etc/init.d/datadog-agent start 	#start the datadog agent processes
+sudo /etc/init.d/datadog-agent stop 	#stop the datadog agent processes
+sudo /etc/init.d/datadog-agent restart 	#restart the datadog agent processes
+sudo /etc/init.d/datadog-agent info 	#displays information on the data being collected by the agent
+sudo /etc/init.d/datadog-agent info -v 	#displays a more detailed(verbose) information on the agent
+```
+
 ## 	Adding Tags to Host
+This exercise will show you how to put tags on your host/s. It is useful to distinguish your hosts from each other especially when you are using multiple servers.
 
 ### Via Website
-  1. From the left bar menu, mouse over on Infrastructure and click on “Infrastructure List”.
-  2. On the upper right corner, click on Update Host Tags
-  3. Click on Edit Tags and enter.
+  1. From the left side menu, mouse over on __Infrastructure__ and click on __Infrastructure List__.
+  2. On the upper right corner, click on __Update Host Tags__.
+  3. Click on __Edit Tags__ and enter.
   
 </br>&ensp;&ensp;&ensp;&ensp;Host Map
-
+    	__INSERT SCREENSHOT__
+	
 ### Via Config file
-  1. From your vagrant terminal, go to the datadog configuration directory via command:</br>
+  1. From your Vagrant terminal, go to the datadog configuration directory via command:</br>
 	&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;`cd /etc/dd-agent`
   2. Open and edit the configuration file - datadog.conf</br>
 	&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;`sudo vi datadog.conf`
   3. On line 30-31, you will find a comment and a template for adding host tags:</br>
-  4. Copy the template, update and save the file.
+		__INSERT SCREENSHOT__
+  4. Copy the sample line excluding the comment and update it with your tag, update and save the file.
+		__INSERT SCREENSHOT__
   5. Restart the datadog agent via command:</br>
 	&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;`sudo /etc/init.d/datadog-agent restart`
   6. You can now find the tags in the UI:</br>
@@ -125,11 +142,11 @@ Now that we have set-up our application suite, we will now proceed in integratin
 
  
 ## 	MySQL Integration
-  1. Get the integration instructions for MySQL, go to Datadog UI.
-  2. On the left side menu, mouse over on Integrations and click on Integrations.
-  3. Type in MySQL in the search box and click on the Configure.
-  4. Click on Generate Password for convenience. This will update the command lines with the same password for your convenience.
-  5. Copy the commands and execute in the vagrant terminal where you have installed the MySQL:<br />
+Next, integrate your MySQL to send data to Datadog.
+  1. On the left side menu of the Datadog UI, mouse over on Integrations and click on Integrations.
+  2. Type in MySQL in the search box and click on the Configure.
+  3. Click on Generate Password for convenience. This will update the command lines with the same password for your convenience.
+  4. Copy the commands and execute in the vagrant terminal where you have installed the MySQL:<br />
 ```
 sudo mysql -e "CREATE USER 'datadog'@'localhost' IDENTIFIED BY 'AfpJBxoAbcwKQGY3V5zs7Vfj';"<br />
 sudo mysql -e "GRANT REPLICATION CLIENT ON *.* TO 'datadog'@'localhost' WITH MAX_USER_CONNECTIONS 5;"<br />
@@ -138,19 +155,19 @@ sudo mysql -e "GRANT SELECT ON performance_schema.* TO 'datadog'@'localhost';"<b
 ```
 _NOTE: You may encounter the error “ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: NO)”, when you do, append the command lines with –u root –p. You will be prompted with the root password.<br />
 Ex. &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;`sudo mysql -e "CREATE USER 'datadog'@'localhost' IDENTIFIED BY 'AfpJBxoAbcwKQGY3V5zs7Vfj';" –u root –p`_
-  6. Verify the changes using the commands from the UI:
+  5. Verify the changes using the commands from the UI:
  
 			Result:
  
  
 			Result:
  
-  7. You now have to configure an Agent for MySQL. Go to directory /etc/dd-agent/conf.d and create a file named mysql.yaml.
-  8. Copy the configuration from the UI and paste it in mysql.yaml.
+  6. You now have to configure an Agent for MySQL. Go to directory /etc/dd-agent/conf.d and create a file named mysql.yaml.
+  7. Copy the configuration from the UI and paste it in mysql.yaml.
  
-  9. Save the file and restart the datadog agent using command:<br />
+  8. Save the file and restart the datadog agent using command:<br />
 &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;`sudo /etc/init.d/datadog-agent restart`
-  10. Execute the info command below:<br />
+  9. Execute the info command below:<br />
 &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;`sudo /etc/init.d/datadog-agent info`
 
 You should be able to see this under Checks:
