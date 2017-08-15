@@ -20,7 +20,7 @@
   - [Dashboard Cloning](#dashboard-cloning)
   - [Custom Agent Check Timeboard](#custom-agent-check-timeboard)
 + [Alerts and Monitoring](#alerts-and-monitoring)
-  - [Dashboard Snapshot and Notification](#dashboard-sanapshot-and-notification)
+  - [Dashboard Snapshot and Notification](#dashboard-snapshot-and-notification)
   - [Alerting Your Data](#alerting-your-data)
   - [Setting up a Monitor for the Test Metric](#setting-up-a-monitor-for-the-test-metric)
   - [Monitoring Downtime](#monitoring-downtime)
