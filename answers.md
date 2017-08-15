@@ -11,7 +11,7 @@
 + [Data Collection](#data-collection)
   - [Datadog Sign Up and Vagrant Integration](#datadog-sign-up-and-vagrant-integration)</br>
 &ensp;&ensp;Bonus Question: [What is an Agent?](#what-is-an-agent)
-  - [Adding Tags to Host](#adding-tags-to-host)
+  - [Host Tags](#host-tags)
   - [MySQL Integration](#mysql-integration)
   - [Custom Check](#custom-check)
   - [Database Integration Screenboard](#database-integration-screenboard)</br>
@@ -118,7 +118,7 @@ sudo /etc/init.d/datadog-agent info -v 	#displays a more detailed(verbose) infor
 
 An agent is a program installed in the host server as part of a parent program to remotely connect and interact with the host. Datadog’s agent in the server will collect data and send it to the Datadog application for monitoring.
 
-## 	Adding Tags to Host
+## Host Tags
 This exercise will show you how to put tags on your host/s. It is useful to distinguish your hosts from each other especially when you are using multiple servers.
 	
 ### Via Config file
