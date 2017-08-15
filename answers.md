@@ -114,6 +114,10 @@ sudo /etc/init.d/datadog-agent info 	#displays information on the data being col
 sudo /etc/init.d/datadog-agent info -v 	#displays a more detailed(verbose) information on the agent
 ```
 
+## What is an Agent?
+
+An agent is a program installed in the host server as part of a parent program to remotely connect and interact with the host. Datadog’s agent in the server will collect data and send it to the Datadog application for monitoring.
+
 ## 	Adding Tags to Host
 This exercise will show you how to put tags on your host/s. It is useful to distinguish your hosts from each other especially when you are using multiple servers.
 	
