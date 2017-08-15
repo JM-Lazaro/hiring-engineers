@@ -33,42 +33,55 @@
 
 # Introduction
 
-The purpose of this document is to display the applicant’s ability to complete basic Datadog Support Engineer tasks as listed in the Github Task.
+With Datadog entering the IT industry in Australia, it is essential to hire competent and passionate employees to be the foundation of the company as it builds it's local client base. This activity is made to be part of the hiring process.
 
+This activity will primarily focus on helping you install three topics:
+  1. Application Suite Set-up
+  2. Datadog Integration
+  3. Monitoring and Alerts
 
 
 # Setting Up the Application Stack
 
-Firstly, set-up the application stack in your Mac OS X. It will consist of a Vagrant Ubuntu operating system hosted on a VirtualBox VM with a
+To start with, you need to set-up the application stack in your Mac OS X. It will consist of a Vagrant-Ubuntu operating system hosted on a VirtualBox VM with MySQL as the database server.
 
-## 	Vagrant Ubuntu and VirtualBox
+## 	Vagrant Ubuntu and VirtualBox Installation
 
-  1. Go to the [vagrant downloads site](https://www.vagrantup.com/downloads.html) and choose the installer for Mac OS X.
+  1. To download the Vagrant installer, go to the [vagrant downloads site](https://www.vagrantup.com/downloads.html) and choose the installer for Mac OS X.
   2. Open the downloaded DMG file and double-click on vagrant.pkg.
 &ensp;&ensp;&ensp;&ensp;![vagrant_install1b](https://user-images.githubusercontent.com/30991348/29309031-6bb18fac-81eb-11e7-8721-85506600f4e7.png =305x272)
-  3. Follow the instructions, which are very straightforward. The only option that you may want to change is in the Destination Select step which is sometimes skipped while clicking next. When that happens, click on the Change Install Location during the Installation Type step:
+  3. The steps are straightforward, the only parameter that you may want to change is in the Destination Select step which is sometimes skipped while clicking next. When that happens, click on the Change Install Location during the Installation Type step:
 &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<img width="310" height="218" src="https://user-images.githubusercontent.com/30991348/29309032-6bb97fd2-81eb-11e7-90e6-d0a8f2e507be.png">
   4. You would see the message below if the installation is a success. If you encounter any issues, please check the amount of diskspace available on your computer or if your operating system’s compatibility.
   5. We will also be using VirtualBox for VM provisioning. To install, go to https://www.virtualbox.org/wiki/Downloads  and click on the OS X hosts option.
-  6. Open the downloaded installer and double-click on VirtualBox.pkg.
-  7. You would see the message below if the installation is a success.
+  6. The installer works exactly the same as with Vagrant. Follow steps 2-3.
+  7. You would see the message below once you installation successfully completes.
  
+ The commands below are simple vagrants that you may use:
+ ```
+ vagrant up      #start/create a Vagrant instance
+ vagrant ssh     #connect to Vagrant instance
+ vagrant halt    #shutdown the Vagrant instance
+ vagrant destroy #terminate/delete the Vagrant instance
+ ```
 
 
 ## 	MYSQL
-
+&ensp;&ensp;Follow the steps below to install MySQL on the Vagrant OS.
   1. Open your MAC Terminal and create/start a vagrant virtual machine by executing the command:<br />
 &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;`vagrant up`
   2. Your Vagrant VM is now up and running. Connect to it by executing the command:<br />
 &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;`vagrant ssh`
   3. Before MySQL installation, make sure the system is updated using the commands:<br />
 &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;`sudo apt-get update`<br />
-&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;`sudo apt-get upgrade` <--_this will take a few minutes to download and install_
+&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;`sudo apt-get upgrade` <--_NOTE:this will take a few minutes to download and install_
   4. To install MySQL, run the command:<br />
 &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;`sudo apt-get install mysql-server`
   5. The MySQL server should be automatically up and running after the installation. To verify, check the mysql background process and try logging in:<br />
 &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;`ps –ef | grep mysql`
-&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;`mysql –u root -p`
+&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;`mysql –u root -p` <--_NOTE:you will be prompted to use the MySQL root credentials that you created during its installation_
+
+
 
 # Data Collection
 
