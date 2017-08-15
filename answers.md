@@ -280,7 +280,7 @@ Both of these type of dashboard can be created by:
  
      3. Set the display preferences and Widget Title and click Done.<br />
     ![screenboard_1](https://user-images.githubusercontent.com/30991348/29323018-ffea6662-8222-11e7-97a8-6fa751207ca3.png)
-     4. Click on __Save Changes__ and you now have your database screenboard:<br />
+     4. Click on __Save Changes__ and you now have your database and custom metric screenboard:<br />
    ![screenboard_2](https://user-images.githubusercontent.com/30991348/29323020-fff49d26-8222-11e7-9a47-22d919ec4ca5.png)<br />
   
 ### Dashboard Cloning
@@ -298,7 +298,7 @@ You can send snapshots with annotations using the timeboard graphs.
   1. Hover you mouse over the graph and a camera icon will appear on the upper right corner of the graph. Click on this icon:<br />
      ![snapshot_1](https://user-images.githubusercontent.com/30991348/29323022-00203c1a-8223-11e7-88cc-39682effb03d.png)
   2. The mouse cursor will be changed to a pencil and you can use this to draw a box and emphasize certain areas in the graph.
-  3. You can also type in your comment in the dialog box below and send an email via annotation:<br />
+  3. You can also type in your comment in the dialog box below and send an email via annotation:<br />
 
   ![snapshot_2](https://user-images.githubusercontent.com/30991348/29323023-00270324-8223-11e7-9563-2bcaf0852f5e.png)<br />
 			
@@ -319,6 +319,7 @@ Setting up a Monitor for the Test.Support.Random Metric
 Email received:<br />
   ![monitor_5](https://user-images.githubusercontent.com/30991348/29323009-ff7ac2d0-8222-11e7-9211-917328222179.png)
 <br />
+
 ### Monitoring Downtime
 
 You can schedule monitoring downtimes for when you have a planned outage or you just don’t want to receive any alerts during off-business hours.
