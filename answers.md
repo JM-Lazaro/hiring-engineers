@@ -253,52 +253,54 @@ In Datadog, you can create two kinds of dashboards - the Timeboard and the Scree
   2. From the left side menu, mouse over on __Dasboards__ and click on __New Dashboard__.
   3. Populate the dashboard name and click on __New Screenboard__.
   4. You can choose any of the objects available but for now, drag __Graph__ into the blank space on the lower part of the page:
- 
+    __insert screenshot__
   5. the __Graph Editor__ box will pop-up to configure the graph:
      1. Set visualization to Timeseries.
      2. Choose the metrics from MySQL and also the test.support.random metric. You can also click on __Add Metric__ to include more.
  
      3. Set the display preferences and Widget Title and click Done.
- 
+    __insert screenshot__
      4. Click on __Save Changes__ and you now have your database screenboard:
-
- 
-
-### 		Dashboard Cloning
-You can also create copies of your dashboard by cloning it. To create a clone you just need to:
-a.	Click on the gear icon on the upper right of the dashboard page and choose Clone Dashboard:
- 
-b.	A pop-up box will appear so you can set the name of the dashboard clone. Click on Clone.
- 
-c.	A new dashboard patterned after your existing dashboard is now created:
-
-### 		Custom Agent Check Timeboard
-  1. To create a screenboard, go to the Datadog UI.
-  2. From the left side menu, mouse over on Dasboards and click on New Dashboard.
-  3. Fill in the dashboard name and click on New Timeboard.
-  4. You can choose any of the objects available but for now, drag Time Series into the blank space on the lower part of the page:
-
+   __insert screenshot__
+   
+### Custom Agent Check Timeboard
+  1. From the left side menu of the Datadog UI, mouse over on __Dasboards__ and click on __New Dashboard__.
+  3. Fill in the dashboard name and click on __New Timeboard__.
+  4. You can choose any of the objects available but for now, drag __Time Series__ into the blank space on the lower part of the page:
+__insert screenshot__
   5. the Graph Editor box will pop-up to configure the graph:
-     1. Set visualization to Timeseries and choose the test.support.random metric.
+     1. Set visualization to __Timeseries__ and choose the __test.support.random metric__.
      2. Set the graph title then click on Save and Finish Editing. Your dashboard will look like this:
+     __insert screenshot__
+     
+### Dashboard Cloning
+You can also create copies of your dashboard by cloning it. To create a clone you just need to:
+  1. Click on the gear icon on the upper right of the dashboard page and choose __Clone Dashboard__:
+    __insert screenshot__
+  2. A pop-up box will appear so you can set the name of the dashboard clone. Click on __Clone__.
+    __insert screenshot__
+  3. A new dashboard patterned after your existing dashboard is now created:
+   __insert screenshot__
  
-### 		Dashboard Snapshot and Notification
+### Dashboard Snapshot and Notification
 You can send snapshots with annotations using the timeboard graphs.
-  1. Hover you mouse over the graph and a camera icon will appear on the upper right corner of the graph. Click on this icon.
+  1. Hover you mouse over the graph and a camera icon will appear on the upper right corner of the graph. Click on this icon:
+     __insert screenshot__
   2. The mouse cursor will be change to a pencil and you can use this to draw a box in the graph and emphasize specific events in it.
   3. You can also type in your comment in the dialog box below and send an email via annotation:
 
 			Email sent:
+			__insert screenshot__
  
 ## 	Alerting your Data
 
-Setting up a Monitor for the Test Metric
-  1. On the left side menu, mouse over on Monitors and select New Monitor.
-  2. Select Metric as the Monitor type.
-  3. Make sure the detection method is set at Threshold Alert since we want to be alerted when the random number breaches the 0.90 mark.
-  4. Next on Define the metric, make sure that you have selected test.support.random from our host(vagrant_system) and select Multi Alert for each host so the alert will be applied to all of your existing and to be created hosts.
+### Setting up a Monitor for the Test Metric
+  1. On the left side menu of the Datadog UI, mouse over on Monitors and select __New Monitor__.
+  2. Select __Metric__ as the __Monitor type__.
+  3. Make sure the detection method is set at __Threshold Alert__ since we want to be alerted when the random number breaches the 0.90 mark.
+  4. Next on Define the metric, make sure that you have selected __test.support.random__ from our host(vagrant_system) and select __Multi Alert__ for each host so the alert will be applied to all of your existing and to be created hosts.
   5. Modify the email subject and body:
-  6. Finally, set the notifications and permissions and click Save.
+  6. Finally, set the notifications and permissions and click __Save__.
 Email received:
 
 ### 	Monitoring Downtime
