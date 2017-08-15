@@ -50,14 +50,15 @@ To start with, you need to set-up the application stack in your Mac OS X. It wil
 
   1. To download the Vagrant installer, go to the [vagrant downloads site](https://www.vagrantup.com/downloads.html) and choose the installer for Mac OS X.
   2. Open the downloaded DMG file and double-click on vagrant.pkg.
-&ensp;&ensp;&ensp;&ensp;![vagrant_install1b](https://user-images.githubusercontent.com/30991348/29309031-6bb18fac-81eb-11e7-8721-85506600f4e7.png =305x272)
-  3. The steps are straightforward, the only parameter that you may want to change is in the Destination Select step which is sometimes skipped while clicking next. When that happens, click on the Change Install Location during the Installation Type step:
-&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<img width="310" height="218" src="https://user-images.githubusercontent.com/30991348/29309032-6bb97fd2-81eb-11e7-90e6-d0a8f2e507be.png">
-  4. You would see the message below if the installation is a success. If you encounter any issues, please check the amount of diskspace available on your computer or if your operating system’s compatibility.
+![vagrant_install1b](https://user-images.githubusercontent.com/30991348/29323031-008e9aac-8223-11e7-9551-0a6899621b85.png)
+  3. The steps are straightforward, the only parameter that you may want to change is in the Destination Select step which is sometimes skipped while clicking next. When that happens, click on the Change Install Location during the Installation Type step:</br>
+![vagrant_intstall2b](https://user-images.githubusercontent.com/30991348/29323032-009acfd4-8223-11e7-8ba1-9375f5cf3594.png)
+  4. You would see the message below if the installation is a success. If you encounter any issues, please check the amount of diskspace available on your computer or if your operating system’s compatibility.</br>
+
   5. We will also be using VirtualBox for VM provisioning. To install, go to https://www.virtualbox.org/wiki/Downloads  and click on the OS X hosts option.
   6. The installer works exactly the same as with Vagrant. Follow steps 2-3.
   7. You would see the message below once you installation successfully completes.
- __insert screenshot__
+![virtualbox_success](https://user-images.githubusercontent.com/30991348/29323033-009e9c18-8223-11e7-93cf-c6f839236aa3.png)
  The commands below are simple vagrants that you may use:
  ```
  vagrant up      #start/create a Vagrant instance
